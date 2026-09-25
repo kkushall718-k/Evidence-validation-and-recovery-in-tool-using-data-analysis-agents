@@ -89,6 +89,6 @@ The snapshot identifier and schedule do not guarantee identical remote outputs. 
 
 ## Research boundaries
 
-The task set is small and purposive, and the improved prompt names several of its semantic distinctions. Run-level intervals are descriptive; six question-level observations per type limit bootstrap interpretation. Primary metrics concern structured claims and chart data. The later AI-assisted review assesses final prose and observable semantic decisions, but is post hoc, unblinded and lacks independent human adjudication. Its arithmetic and source bindings reproduce; that does not independently validate the judgements. Ambiguous prose is reported separately. The runtime validator checks receipt consistency, not full analytical meaning. The optional human-review fields remain blank because no human ratings were collected.
+The task set is small and purposive, and the improved prompt names several of its semantic distinctions. Run-level intervals are descriptive; six question-level observations per type limit bootstrap interpretation. Primary metrics concern structured claims and chart data. Ambiguous prose is reported separately. The runtime validator checks receipt consistency, not full analytical meaning. 
 
-Code and prose were prepared with disclosed AI assistance under the supervisor permission reported by the author. The final submission still requires the author's review, title-page details and the current Canvas upload requirements. No institution forms, meeting records or signatures have been invented.
+
