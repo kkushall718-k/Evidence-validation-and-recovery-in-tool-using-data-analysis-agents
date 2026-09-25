@@ -1,0 +1,1303 @@
+{
+  "T001": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "not_null",
+          "value": null
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "query"
+  },
+  "T002": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "not_null",
+          "value": null
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 50,
+      "operation": "aggregate",
+      "sort_by": [
+        "Year"
+      ]
+    },
+    "tool": "query"
+  },
+  "T003": {
+    "arguments": {
+      "evidence_id": "E002",
+      "kind": "line",
+      "title": "Total Global Sales by Release Year",
+      "x": "Year",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T004": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [],
+      "group_by": [
+        "Genre"
+      ],
+      "limit": 50,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T005": {
+    "arguments": {
+      "evidence_id": "E001",
+      "kind": "bar",
+      "title": "Sales by Genre in NA, EU, and JP",
+      "x": "Genre",
+      "ys": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T006": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [],
+      "group_by": [
+        "Genre"
+      ],
+      "limit": 50,
+      "operation": "aggregate",
+      "sort_by": [
+        "NA_Sales"
+      ]
+    },
+    "tool": "query"
+  },
+  "T007": {
+    "arguments": {
+      "evidence_id": "E001",
+      "kind": "bar",
+      "title": "Sales by Genre in NA, EU and JP",
+      "x": "Genre",
+      "ys": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T008": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Publisher",
+        "Year",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T009": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T010": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [],
+      "group_by": [
+        "Genre"
+      ],
+      "limit": 50,
+      "operation": "aggregate",
+      "sort_by": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ]
+    },
+    "tool": "query"
+  },
+  "T011": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2000"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2009"
+        },
+        {
+          "column": "Publisher",
+          "operator": "not_null",
+          "value": null
+        }
+      ],
+      "group_by": [
+        "Publisher"
+      ],
+      "limit": 5,
+      "operation": "aggregate",
+      "sort_by": [
+        "Global_Sales",
+        "Publisher"
+      ]
+    },
+    "tool": "query"
+  },
+  "T012": {
+    "arguments": {
+      "evidence_id": "E001",
+      "kind": "bar",
+      "title": "Top 5 Publishers by Global Sales (2000-2009)",
+      "x": "Publisher",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T013": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2000"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2009"
+        },
+        {
+          "column": "Publisher",
+          "operator": "ne",
+          "value": ""
+        }
+      ],
+      "group_by": [
+        "Publisher"
+      ],
+      "limit": 5,
+      "operation": "aggregate",
+      "sort_by": [
+        "Global_Sales",
+        "Publisher"
+      ]
+    },
+    "tool": "query"
+  },
+  "T014": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Platform",
+          "operator": "eq",
+          "value": "DS"
+        },
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2005"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T015": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Platform",
+          "operator": "eq",
+          "value": "DS"
+        },
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2005"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T016": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Year",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T017": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T018": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Name",
+        "Platform",
+        "Global_Sales",
+        "Digital_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T019": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Name",
+        "Platform",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T020": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Name",
+        "Global_Sales",
+        "Digital_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T021": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales",
+        "Digital_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T022": {
+    "arguments": {},
+    "tool": "profile"
+  },
+  "T023": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "not_null",
+          "value": null
+        },
+        {
+          "column": "Year",
+          "operator": "lt",
+          "value": "1980"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T024": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "not_null",
+          "value": null
+        },
+        {
+          "column": "Year",
+          "operator": "gt",
+          "value": "2016"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T025": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "is_null",
+          "value": null
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T026": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "is_null",
+          "value": null
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T027": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "lt",
+          "value": "1980"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T028": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "gt",
+          "value": "2016"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T029": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [
+        "Name",
+        "Platform",
+        "Global_Sales",
+        "Rank"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [],
+      "group_by": [],
+      "limit": 5,
+      "operation": "select",
+      "sort_by": [
+        "Global_Sales",
+        "Rank"
+      ]
+    },
+    "tool": "query"
+  },
+  "T030": {
+    "arguments": {
+      "evidence_id": "E001",
+      "kind": "bar",
+      "title": "Top 5 Game-Platform Rows by Global Sales",
+      "x": "Name",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T031": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Year",
+        "Publisher",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T032": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Year",
+          "operator": "lt",
+          "value": "2008"
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 10,
+      "operation": "aggregate",
+      "sort_by": [
+        "Year"
+      ]
+    },
+    "tool": "query"
+  },
+  "T033": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales",
+        "Other_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T034": {
+    "arguments": {
+      "evidence_id": "E002",
+      "kind": "line",
+      "title": "Total Recorded Global Sales by Release Year",
+      "x": "Year",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T035": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales",
+        "Year"
+      ],
+      "descending": true,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "not_null",
+          "value": null
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "query"
+  },
+  "T036": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales",
+        "Year"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "not_null",
+          "value": null
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 50,
+      "operation": "aggregate",
+      "sort_by": [
+        "Year"
+      ]
+    },
+    "tool": "query"
+  },
+  "T037": {
+    "arguments": {
+      "evidence_id": "E004",
+      "kind": "line",
+      "title": "Total Global Sales by Release Year",
+      "x": "Year",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T038": {
+    "arguments": {
+      "aggregation": "mean",
+      "columns": [
+        "Critic_Score"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Genre",
+          "operator": "eq",
+          "value": "Role-Playing"
+        },
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2000"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2010"
+        },
+        {
+          "column": "Critic_Score",
+          "operator": "not_null",
+          "value": null
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T039": {
+    "arguments": {
+      "aggregation": "mean",
+      "columns": [
+        "Critic_Score"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Genre",
+          "operator": "eq",
+          "value": "Role-Playing"
+        },
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2000"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T040": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Year",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T041": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales",
+        "Other_Sales",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T042": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Publisher",
+        "Year",
+        "Global_Sales",
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales",
+        "Other_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T043": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "any",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "lt",
+          "value": "1980"
+        },
+        {
+          "column": "Year",
+          "operator": "gt",
+          "value": "2016"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T044": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Year",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        }
+      ],
+      "group_by": [
+        "Year"
+      ],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": [
+        "Year"
+      ]
+    },
+    "tool": "query"
+  },
+  "T045": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "any",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "lt",
+          "value": "1980"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T046": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "any",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "gt",
+          "value": "2016"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T047": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Name",
+        "Platform",
+        "Global_Sales",
+        "Other_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T048": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Name",
+        "Global_Sales",
+        "Physical_Sales",
+        "Digital_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Name",
+          "operator": "eq",
+          "value": "Wii Sports"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T049": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Year",
+        "Publisher",
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Year",
+          "operator": "eq",
+          "value": "2008"
+        },
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "select",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T050": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Year",
+          "operator": "lt",
+          "value": "2008"
+        }
+      ],
+      "group_by": [],
+      "limit": 1,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T051": {
+    "arguments": {
+      "aggregation": "sum",
+      "columns": [
+        "Global_Sales"
+      ],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Platform",
+          "operator": "eq",
+          "value": "DS"
+        },
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2005"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "aggregate",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T052": {
+    "arguments": {
+      "aggregation": "count",
+      "columns": [],
+      "descending": false,
+      "filter_mode": "all",
+      "filters": [
+        {
+          "column": "Publisher",
+          "operator": "eq",
+          "value": "Nintendo"
+        },
+        {
+          "column": "Platform",
+          "operator": "eq",
+          "value": "DS"
+        },
+        {
+          "column": "Year",
+          "operator": "ge",
+          "value": "2005"
+        },
+        {
+          "column": "Year",
+          "operator": "le",
+          "value": "2010"
+        }
+      ],
+      "group_by": [],
+      "limit": 50,
+      "operation": "count",
+      "sort_by": []
+    },
+    "tool": "query"
+  },
+  "T053": {
+    "arguments": {
+      "evidence_id": "E002",
+      "kind": "bar",
+      "title": "Top 5 Games by Global Sales",
+      "x": "Name",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T054": {
+    "arguments": {
+      "evidence_id": "E002",
+      "kind": "bar",
+      "title": "Top 5 Game-Platform Rows by Global Sales",
+      "x": "Name",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  },
+  "T055": {
+    "arguments": {
+      "evidence_id": "E002",
+      "kind": "bar",
+      "title": "Top 5 Game-Platform Global Sales",
+      "x": "Name",
+      "ys": [
+        "Global_Sales"
+      ]
+    },
+    "tool": "plot"
+  }
+}

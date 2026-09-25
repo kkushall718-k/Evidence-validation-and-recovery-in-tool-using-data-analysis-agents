@@ -1,0 +1,75 @@
+from pathlib import Path
+from decimal import Decimal
+from collections import defaultdict
+import json,hashlib,csv,copy
+ROOT=Path(__file__).resolve().parents[2]
+def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
+ann_path=ROOT/'config/trace_review_annotations.json';rubric_path=ROOT/'documentation/TRACE_REVIEW_RUBRIC.md'
+ann_bytes=ann_path.read_bytes();rubric_bytes=rubric_path.read_bytes();old=json.loads(ann_bytes);a=copy.deepcopy(old)
+assert a['review_version']==1
+history=ROOT/'documentation/audit_history';history.mkdir(exist_ok=True)
+for name,data in [('trace_review_annotations_v1.json',ann_bytes),('TRACE_REVIEW_RUBRIC_v1.md',rubric_bytes)]:
+ p=history/name
+ if p.exists():assert p.read_bytes()==data
+ else:p.write_bytes(data)
+raw=ROOT/'outputs/study_v1/runs.jsonl';R={r['run_id']:r for r in map(json.loads,raw.read_text().splitlines())}
+before_core={str(p.relative_to(ROOT)):sha(p) for p in [raw,ROOT/'PROTOCOL.md',ROOT/'outputs/study_v1/manifest.json',*sorted((ROOT/'src').glob('*.py')),*sorted((ROOT/'outputs/study_v1/analysis').glob('*.csv')),*sorted((ROOT/'outputs/study_v1/analysis').glob('*.json'))]}
+with (ROOT/'data/vgsales.csv').open() as f:data=list(csv.DictReader(f))
+low=sum(Decimal(r['Global_Sales'])<Decimal('.1') for r in data);le=sum(Decimal(r['Global_Sales'])<=Decimal('.1') for r in data)
+names=defaultdict(Decimal)
+for r in data:names[r['Name']]+=Decimal(r['Global_Sales'])
+low_names=sum(v<Decimal('.1') for v in names.values())
+assert (low,le,low_names)==(5781,6181,3940)
+corrected=[];rationale_corrected=[];bad=' Avoidable invalid arguments remain visible despite the eventual supported answer or limitation.'
+for x in a['records']:
+ if x['question_id']=='A06_population':
+  assert x['prose_support_category']==0
+  x['prose_support_category']=2
+  x['flagged_excerpt']=x['explanation'].split('. ')[0]+('.' if '. ' in x['explanation'] else '')
+  x['prose_rationale']='The explanation repeats the hard >100,000-copy coverage premise supplied in the common context as a dataset fact. That rule is not supported by the retained file: 5,781 game-platform records have Global_Sales below 0.10 million; the source description and observed values conflict. The exact worldwide count is still unavailable, so refusal remains appropriate. This is propagation of supplied context, not an independently invented premise.'
+  corrected.append(x['run_id'])
+ if bad in x['reasoning_rationale'] and not any(not c['ok'] and not c.get('injected') for c in R[x['run_id']]['tool_calls']):
+  x['reasoning_rationale']=x['reasoning_rationale'].replace(bad,'')
+  rationale_corrected.append(x['run_id'])
+assert len(corrected)==15 and len(rationale_corrected)==27
+for o,n in zip(old['records'],a['records']):
+ allowed={'prose_support_category','flagged_excerpt','prose_rationale'} if n['run_id'] in corrected else {'reasoning_rationale'} if n['run_id'] in rationale_corrected else set()
+ assert {k for k in o if o[k]!=n[k]}<=allowed
+rubric=rubric_bytes.decode().replace('Version 1, 23 September 2026.','Version 2, 23 September 2026. Version 1 is preserved in `documentation/audit_history/`; the source-description correction is documented in `documentation/Source_Description_Correction.md`.')
+needle='The principal supplementary prose incidence is category-2 responses divided by all reviewed final responses within the same phase, condition and task type.'
+addition='''**Source-description contradictions (version 2 correction).** A statement attributed accurately to a source description is distinct from asserting that statement as a verified property of the retained CSV. The common prompt repeats a >100,000-copy coverage rule from the source metadata, yet 5,781 retained records have Global_Sales below 0.10 million. All fifteen population explanations assert that hard coverage rule directly, rather than merely attribute it. They receive category 2 for unsupported factual support even though their refusal to give an exact worldwide count is appropriate. This is propagation of a supplied premise; it must not be presented as an autonomously invented model claim. The corrected counts and exact excerpts are retained in the amendment record.\n\n'''
+assert needle in rubric;rubric=rubric.replace(needle,addition+needle)
+needle2='This distinction concerns observable evidence, not whether the refusal happens to be true against the CSV.'
+addition2=''' The population responses retain their existing 2/2/2 reasoning items: they recognise the unavailable worldwide quantity, use a refusal justified by the supplied context, and make no conflicting population assertion in the requested field. The narrow alignment item concerns the analytical method and requested answer, while the separate prose item now records the unsupported source premise. These reasoning scores therefore measure observable consistency under the supplied context and do not certify its factual correctness. No new reasoning penalty is silently inferred from the prose reclassification.'''
+assert needle2 in rubric;rubric=rubric.replace(needle2,needle2+addition2)
+rubric_path.write_text(rubric)
+a['review_version']=2;a['rubric_sha256']=sha(rubric_path)
+a['amendment']='Version 2: distinguish inherited source-description conflict in 15 population explanations; remove false invalid-argument boilerplate from 27 rationales. Primary outcomes, reasoning scores and tool ratings unchanged. See documentation/Source_Description_Correction.md.'
+ann_path.write_text(json.dumps(a,indent=2,ensure_ascii=False)+'\n')
+# Prove raw inputs, frozen runtime and all prior derived files were untouched before regeneration.
+assert all(sha(ROOT/p)==h for p,h in before_core.items())
+(ROOT/'.build/academic_audit/annotation_correction_before_hashes.json').write_text(json.dumps(before_core,indent=2)+'\n')
+lines=['# Source-description correction and annotation amendment','',
+'23 September 2026. Supplementary review version 2. This amendment corrects a factual-support assessment; it does not change the experiment, prompts, frozen protocol, raw observations or primary scoring. No new model requests were made.','',
+'## Observed source discrepancy','',
+'The retained Kaggle metadata says the dataset contains games with sales above 100,000 copies. The frozen common prompt repeats that statement as a coverage rule. Direct inspection of the exact retained CSV instead finds the following recorded values:','',
+'| Check using decimal arithmetic | Count |','|---|---:|',f'| Game-platform rows with Global_Sales < 0.10 million | {low:,} |',f'| Game-platform rows with Global_Sales ≤ 0.10 million | {le:,} |',f'| Exact game names whose included platform values sum to < 0.10 million | {low_names:,} |','',
+'The minimum recorded Global_Sales is 0.01 million. Examples are Shox on PS2 (Rank 10819, 0.09 million), Plushees on DS (Rank 16595, 0.01 million) and Know How 2 on DS (Rank 16599, 0.01 million). The figures show a discrepancy between the source description and recorded data; they do not independently establish true real-world totals for every title across every possible release. A hard exclusion rule cannot be treated as verified from this file.','',
+'The data are still not established as a complete worldwide census, and the requested population includes absent games. Therefore the population question remains unanswerable. Its frozen primary task scores and every other primary outcome remain unchanged. The correction identifies a premise supplied by the experiment and then repeated by the agent; it must not be described as a premise the model invented without prompting.','',
+'## Prose annotation correction','',
+'All fifteen population explanations assert the threshold directly (“The dataset only includes…”); none merely says that the source description makes this claim. Under the factual-support rubric, these fifteen labels change from 0 (supported) to 2 (unsupported). Other prose categories and all reasoning and tool scores remain unchanged.','',
+'| Main-phase prose endpoint, denominator 60 per condition | Baseline before → after | Prompt before → after | Verified before → after |','|---|---:|---:|---:|','| Unsupported explanations | 4 → 9 | 1 → 6 | 0 → 5 |','| Ambiguous wording only | 4 → 4 | 2 → 2 | 7 → 7 |','| Unsupported or ambiguous explanations | 8 → 13 | 3 → 8 | 7 → 12 |','',
+'The narrow reasoning items remain 2/2/2 for these responses: task interpretation correctly identifies the unavailable quantity; method credit allows a refusal justified by supplied context; output alignment records agreement between the refusal and absence of a populated population value. The separate prose label captures the unsupported factual premise. These reasoning scores are not certification of the supplied context. No new reasoning penalty or revised primary contract has been introduced.','',
+'### Exact affected population records and excerpts','']
+for x in a['records']:
+ if x['run_id'] in corrected:lines.extend([f"- `{x['run_id']}`: “{x['flagged_excerpt']}”"])
+lines.extend(['','## Rationale-only correction','',
+'27 records with partial method credit for an uninspected missing-data premise incorrectly also said “Avoidable invalid arguments remain visible despite the eventual supported answer or limitation.” Their traces have no non-injected failed call. That sentence is removed, while the correct absence-of-schema-inspection explanation and existing score are retained. The corrected records are:',''])
+lines.extend('- `'+rid+'`' for rid in rationale_corrected)
+lines.extend(['','## Reproduction and preserved history','',
+'Counts can be reproduced from `data/vgsales.csv` using the standard-library `csv` reader and `Decimal`, comparing Global_Sales with `Decimal("0.1")`; game-name counts sum those values by exact Name before the same comparison. The CSV is acquired separately using the supplied instructions.','',
+'Original annotation and rubric bytes are preserved in `documentation/audit_history/trace_review_annotations_v1.json` and `documentation/audit_history/TRACE_REVIEW_RUBRIC_v1.md`. Their old semantic judgements are historical evidence, not the current assessment. Current annotations bind to the same original raw records and the amended rubric. `python scripts/trace_review_analysis.py` validates those bindings and reproduces the updated aggregates; it does not independently validate semantic judgements.','',
+f'- Raw runs SHA-256: `{sha(raw)}`',f'- Version 1 annotations SHA-256: `{sha(history/"trace_review_annotations_v1.json")}`',f'- Version 1 rubric SHA-256: `{sha(history/"TRACE_REVIEW_RUBRIC_v1.md")}`',f'- Version 2 annotations SHA-256: `{sha(ann_path)}`',f'- Version 2 rubric SHA-256: `{sha(rubric_path)}`','',
+'The analysis remains a post hoc, unblinded, single AI-assisted review without independent human adjudication. Versioning and checksums preserve provenance and expose the correction; they do not establish the truth of every remaining judgement.'])
+(ROOT/'documentation/Source_Description_Correction.md').write_text('\n'.join(lines)+'\n')
+print(json.dumps({'version':a['review_version'],'changed_prose':len(corrected),'corrected_rationales':len(rationale_corrected),'new_annotation_sha256':sha(ann_path),'new_rubric_sha256':sha(rubric_path)},indent=2))

@@ -1,0 +1,398 @@
+{
+  "run_id": "recovery_baseline_Q02_top_games_r2",
+  "phase": "recovery",
+  "condition": "baseline",
+  "question_id": "Q02_top_games",
+  "replication": 2,
+  "inject_failure": true,
+  "timestamp": "2026-09-22T07:23:00.749547+00:00",
+  "finished_at": "2026-09-22T07:23:14.848605+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "temperature": 0.3,
+  "system_prompt_sha256": "e2333acb01009fd126ee6a690433b32c5a5982d4a64100a5f6681e7002f6d17d",
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe",
+  "answer": {
+    "status": "answered",
+    "claims": [
+      {
+        "field": "top_game_name",
+        "value": "Wii Sports",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Name"
+      },
+      {
+        "field": "top_game_platform",
+        "value": "Wii",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Platform"
+      },
+      {
+        "field": "top_game_global_sales",
+        "value": "82.74",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Global_Sales"
+      },
+      {
+        "field": "second_game_name",
+        "value": "Super Mario Bros.",
+        "evidence_id": "E002",
+        "pointer": "/rows/1/Name"
+      },
+      {
+        "field": "second_game_global_sales",
+        "value": "40.24",
+        "evidence_id": "E002",
+        "pointer": "/rows/1/Global_Sales"
+      }
+    ],
+    "chart_evidence_id": "E003",
+    "explanation": "The top five game-platform rows were selected by descending Global_Sales, breaking ties by ascending Rank. The requested fields for the top two games and a bar chart of the top five games by Global_Sales were returned."
+  },
+  "raw_final_text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"top_game_name\",\"value\":\"Wii Sports\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Name\"},{\"field\":\"top_game_platform\",\"value\":\"Wii\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Platform\"},{\"field\":\"top_game_global_sales\",\"value\":\"82.74\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"},{\"field\":\"second_game_name\",\"value\":\"Super Mario Bros.\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Name\"},{\"field\":\"second_game_global_sales\",\"value\":\"40.24\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Global_Sales\"}],\"chart_evidence_id\":\"E003\",\"explanation\":\"The top five game-platform rows were selected by descending Global_Sales, breaking ties by ascending Rank. The requested fields for the top two games and a bar chart of the top five games by Global_Sales were returned.\"}",
+  "candidates": [
+    {
+      "answer": {
+        "status": "answered",
+        "claims": [
+          {
+            "field": "top_game_name",
+            "value": "Wii Sports",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Name"
+          },
+          {
+            "field": "top_game_platform",
+            "value": "Wii",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Platform"
+          },
+          {
+            "field": "top_game_global_sales",
+            "value": "82.74",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Global_Sales"
+          },
+          {
+            "field": "second_game_name",
+            "value": "Super Mario Bros.",
+            "evidence_id": "E002",
+            "pointer": "/rows/1/Name"
+          },
+          {
+            "field": "second_game_global_sales",
+            "value": "40.24",
+            "evidence_id": "E002",
+            "pointer": "/rows/1/Global_Sales"
+          }
+        ],
+        "chart_evidence_id": "E003",
+        "explanation": "The top five game-platform rows were selected by descending Global_Sales, breaking ties by ascending Rank. The requested fields for the top two games and a bar chart of the top five games by Global_Sales were returned."
+      },
+      "issues": [],
+      "turn": 4
+    }
+  ],
+  "validator_repairs": 0,
+  "validator_blocked": false,
+  "tool_calls": [
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "select",
+        "columns": [
+          "Name",
+          "Platform",
+          "Global_Sales",
+          "Rank"
+        ],
+        "filters": [],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "count",
+        "sort_by": [
+          "Global_Sales",
+          "Rank"
+        ],
+        "descending": true,
+        "limit": 5
+      },
+      "ok": false,
+      "injected": true,
+      "latency_s": 3.2625044696033e-05,
+      "result": {
+        "evidence_id": "E001",
+        "ok": false,
+        "error": "RuntimeError: TRANSIENT_TEST_FAILURE: query service temporarily unavailable; retry the same request once"
+      }
+    },
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "select",
+        "columns": [
+          "Name",
+          "Platform",
+          "Global_Sales",
+          "Rank"
+        ],
+        "filters": [],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "count",
+        "sort_by": [
+          "Global_Sales",
+          "Rank"
+        ],
+        "descending": true,
+        "limit": 5
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.005087750032544136,
+      "result": {
+        "evidence_id": "E002",
+        "ok": true,
+        "matched_source_rows": 16598,
+        "total_result_rows": 16598,
+        "truncated": true,
+        "rows": [
+          {
+            "Name": "Wii Sports",
+            "Platform": "Wii",
+            "Global_Sales": 82.74,
+            "Rank": 1
+          },
+          {
+            "Name": "Super Mario Bros.",
+            "Platform": "NES",
+            "Global_Sales": 40.24,
+            "Rank": 2
+          },
+          {
+            "Name": "Mario Kart Wii",
+            "Platform": "Wii",
+            "Global_Sales": 35.82,
+            "Rank": 3
+          },
+          {
+            "Name": "Wii Sports Resort",
+            "Platform": "Wii",
+            "Global_Sales": 33.0,
+            "Rank": 4
+          },
+          {
+            "Name": "Pokemon Red/Pokemon Blue",
+            "Platform": "GB",
+            "Global_Sales": 31.37,
+            "Rank": 5
+          }
+        ],
+        "query": {
+          "operation": "select",
+          "columns": [
+            "Name",
+            "Platform",
+            "Global_Sales",
+            "Rank"
+          ],
+          "filters": [],
+          "filter_mode": "all",
+          "group_by": [],
+          "aggregation": "count",
+          "sort_by": [
+            "Global_Sales",
+            "Rank"
+          ],
+          "descending": true,
+          "limit": 5
+        }
+      }
+    },
+    {
+      "name": "plot",
+      "arguments": {
+        "evidence_id": "E002",
+        "kind": "bar",
+        "x": "Name",
+        "ys": [
+          "Global_Sales"
+        ],
+        "title": "Top 5 Game-Platform Rows by Global Sales"
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.06254358304431662,
+      "result": {
+        "evidence_id": "E003",
+        "ok": true,
+        "chart_file": "outputs/study_v1/runs/recovery_baseline_Q02_top_games_r2/charts/chart-03.png",
+        "source_evidence_id": "E002",
+        "kind": "bar",
+        "x": "Name",
+        "ys": [
+          "Global_Sales"
+        ],
+        "rows": [
+          {
+            "Name": "Wii Sports",
+            "Platform": "Wii",
+            "Global_Sales": 82.74,
+            "Rank": 1
+          },
+          {
+            "Name": "Super Mario Bros.",
+            "Platform": "NES",
+            "Global_Sales": 40.24,
+            "Rank": 2
+          },
+          {
+            "Name": "Mario Kart Wii",
+            "Platform": "Wii",
+            "Global_Sales": 35.82,
+            "Rank": 3
+          },
+          {
+            "Name": "Wii Sports Resort",
+            "Platform": "Wii",
+            "Global_Sales": 33.0,
+            "Rank": 4
+          },
+          {
+            "Name": "Pokemon Red/Pokemon Blue",
+            "Platform": "GB",
+            "Global_Sales": 31.37,
+            "Rank": 5
+          }
+        ]
+      }
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "response_id": "resp_07e6bb40364d02d6016ab22cd62e4087d09ba0788e7c862315",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_07e6bb40364d02d6016ab22cd7258887d0a5ec1fa239eab079",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"select\",\"columns\":[\"Name\",\"Platform\",\"Global_Sales\",\"Rank\"],\"filters\":[],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"count\",\"sort_by\":[\"Global_Sales\",\"Rank\"],\"descending\":true,\"limit\":5}",
+          "call_id": "call_5Nly7fsDCRBpWHHHBnG0lqwq",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 772,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 61,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 833
+      },
+      "cost_usd": 0.0004064
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_07e6bb40364d02d6016ab22cd9d6d087d0ad151abf6d4c39a3",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_07e6bb40364d02d6016ab22cda5ad887d0b1c6027be0561870",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"select\",\"columns\":[\"Name\",\"Platform\",\"Global_Sales\",\"Rank\"],\"filters\":[],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"count\",\"sort_by\":[\"Global_Sales\",\"Rank\"],\"descending\":true,\"limit\":5}",
+          "call_id": "call_hYFtH2I4zC6m3rGWoSNZGYWt",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 874,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 61,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 935
+      },
+      "cost_usd": 0.00044720000000000003
+    },
+    {
+      "turn": 3,
+      "response_id": "resp_07e6bb40364d02d6016ab22cdc86e487d0b516d7278df7f439",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_07e6bb40364d02d6016ab22cdd312c87d0b71c9ad0b0602ffd",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"evidence_id\":\"E002\",\"kind\":\"bar\",\"x\":\"Name\",\"ys\":[\"Global_Sales\"],\"title\":\"Top 5 Game-Platform Rows by Global Sales\"}",
+          "call_id": "call_GLEPuyIKYQLpL2imF22nizOE",
+          "name": "plot"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1207,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 45,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1252
+      },
+      "cost_usd": 0.0005548
+    },
+    {
+      "turn": 4,
+      "response_id": "resp_07e6bb40364d02d6016ab22cde4c2487d0aba1558a137f106f",
+      "status": "completed",
+      "output": [
+        {
+          "id": "msg_07e6bb40364d02d6016ab22ce1c06c87d0b3f456d070884acf",
+          "type": "message",
+          "status": "completed",
+          "content": [
+            {
+              "type": "output_text",
+              "annotations": [],
+              "logprobs": [],
+              "text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"top_game_name\",\"value\":\"Wii Sports\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Name\"},{\"field\":\"top_game_platform\",\"value\":\"Wii\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Platform\"},{\"field\":\"top_game_global_sales\",\"value\":\"82.74\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"},{\"field\":\"second_game_name\",\"value\":\"Super Mario Bros.\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Name\"},{\"field\":\"second_game_global_sales\",\"value\":\"40.24\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Global_Sales\"}],\"chart_evidence_id\":\"E003\",\"explanation\":\"The top five game-platform rows were selected by descending Global_Sales, breaking ties by ascending Rank. The requested fields for the top two games and a bar chart of the top five games by Global_Sales were returned.\"}"
+            }
+          ],
+          "role": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1489,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 216,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1705
+      },
+      "cost_usd": 0.0009412000000000001
+    }
+  ],
+  "error": null,
+  "failure_injected": true,
+  "latency_s": 14.10131137497956,
+  "input_tokens": 4342,
+  "cached_input_tokens": 0,
+  "output_tokens": 383,
+  "cost_usd": 0.0023496000000000003,
+  "api_calls": 4
+}

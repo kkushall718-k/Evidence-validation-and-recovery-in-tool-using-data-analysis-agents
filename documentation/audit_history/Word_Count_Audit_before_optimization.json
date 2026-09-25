@@ -1,0 +1,104 @@
+{
+  "file_name": "Kushal_Krishnamurthy_Dissertation.docx",
+  "docx_sha256": "bae286cf616097b4a3b22b15586277ae441efaece5f404fe55e0162fa7db94cf",
+  "method": "Whitespace tokens and subset containing an alphanumeric character; visible body text, tables and cached contents included; headers/footers, field instructions and image alt text excluded. Not a Microsoft Word count.",
+  "sections": {
+    "Title page": {
+      "whitespace_tokens": 66,
+      "alphanumeric_tokens": 66
+    },
+    "Abstract": {
+      "whitespace_tokens": 271,
+      "alphanumeric_tokens": 271
+    },
+    "Statement of AI assistance": {
+      "whitespace_tokens": 107,
+      "alphanumeric_tokens": 107
+    },
+    "Contents": {
+      "whitespace_tokens": 399,
+      "alphanumeric_tokens": 399
+    },
+    "1 Introduction": {
+      "whitespace_tokens": 1044,
+      "alphanumeric_tokens": 1044
+    },
+    "2 Foundations": {
+      "whitespace_tokens": 1217,
+      "alphanumeric_tokens": 1217
+    },
+    "3 Related work": {
+      "whitespace_tokens": 1785,
+      "alphanumeric_tokens": 1785
+    },
+    "4 System design and research method": {
+      "whitespace_tokens": 3077,
+      "alphanumeric_tokens": 3067
+    },
+    "5 Results": {
+      "whitespace_tokens": 2460,
+      "alphanumeric_tokens": 2460
+    },
+    "6 Discussion": {
+      "whitespace_tokens": 1802,
+      "alphanumeric_tokens": 1802
+    },
+    "7 Conclusion": {
+      "whitespace_tokens": 625,
+      "alphanumeric_tokens": 625
+    },
+    "References": {
+      "whitespace_tokens": 726,
+      "alphanumeric_tokens": 726
+    },
+    "Appendix A Complete prompts": {
+      "whitespace_tokens": 427,
+      "alphanumeric_tokens": 427
+    },
+    "Appendix B Question inventory": {
+      "whitespace_tokens": 484,
+      "alphanumeric_tokens": 484
+    },
+    "Appendix C Reproduction and artifacts": {
+      "whitespace_tokens": 237,
+      "alphanumeric_tokens": 237
+    },
+    "Appendix D Supplementary assessment rubric": {
+      "whitespace_tokens": 775,
+      "alphanumeric_tokens": 775
+    }
+  },
+  "main_chapters": {
+    "whitespace_tokens": 12010,
+    "alphanumeric_tokens": 12000
+  },
+  "full_body": {
+    "whitespace_tokens": 15502,
+    "alphanumeric_tokens": 15492
+  },
+  "punctuation_only_tokens": {
+    "/": 10
+  },
+  "editor_cross_check": {
+    "application": "Bundled LibreOffice Writer; not Microsoft Word",
+    "method": "Read-only conversion of the actual DOCX and temporary body/main-chapter selections to ODT; document-statistic word-count read from saved meta.xml",
+    "counts": {
+      "Kushal_Krishnamurthy_Dissertation": {
+        "words": 15525,
+        "generator": "LibreOfficeDev/26.8.0.0.alpha0$MacOSX_AARCH64 LibreOffice_project/2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+        "odt_sha256": "d8fd1696287378abfdfb19898f0aa7444601b161e60b9c826502c746bcae547d"
+      },
+      "main_chapters_only": {
+        "words": 12018,
+        "generator": "LibreOfficeDev/26.8.0.0.alpha0$MacOSX_AARCH64 LibreOffice_project/2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+        "odt_sha256": "25fb0e47531386f2dd66dd9aa026bc858f3d194e9840d328d7eefb941c0b6307"
+      },
+      "full_body_only": {
+        "words": 15520,
+        "generator": "LibreOfficeDev/26.8.0.0.alpha0$MacOSX_AARCH64 LibreOffice_project/2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+        "odt_sha256": "7baa7bf1ff834d1ec3ff48ac18c5ce686375c85fa49fc34711ffbb7ee5315e99"
+      }
+    }
+  },
+  "compliance_status": "Unconfirmed: handbook gives a 12000-word limit but does not specify counted sections; native Microsoft Word count and current institutional inclusion rule are not verified."
+}

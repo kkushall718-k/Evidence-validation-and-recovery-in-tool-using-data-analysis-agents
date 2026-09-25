@@ -1,0 +1,7 @@
+kind,metric,reference,condition,difference,question_bootstrap_low,question_bootstrap_high,question_count,interpretation
+answerable,task_success,baseline,prompt,0.0,0.0,0.0,6,Descriptive resampling of this small purposive question set; not population-level inference.
+answerable,task_success,prompt,verified,0.0,0.0,0.0,6,Descriptive resampling of this small purposive question set; not population-level inference.
+answerable,task_success,baseline,verified,0.0,0.0,0.0,6,Descriptive resampling of this small purposive question set; not population-level inference.
+adversarial,unsupported_structured_claim,baseline,prompt,-0.26666666666666666,-0.6,0.0,6,Descriptive resampling of this small purposive question set; not population-level inference.
+adversarial,unsupported_structured_claim,prompt,verified,-0.03333333333333333,-0.10000000000000002,0.0,6,Descriptive resampling of this small purposive question set; not population-level inference.
+adversarial,unsupported_structured_claim,baseline,verified,-0.3,-0.6333333333333333,0.0,6,Descriptive resampling of this small purposive question set; not population-level inference.

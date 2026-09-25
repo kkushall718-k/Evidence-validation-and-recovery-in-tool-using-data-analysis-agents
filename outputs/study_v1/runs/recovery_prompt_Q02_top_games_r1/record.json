@@ -1,0 +1,398 @@
+{
+  "run_id": "recovery_prompt_Q02_top_games_r1",
+  "phase": "recovery",
+  "condition": "prompt",
+  "question_id": "Q02_top_games",
+  "replication": 1,
+  "inject_failure": true,
+  "timestamp": "2026-09-22T07:22:10.365101+00:00",
+  "finished_at": "2026-09-22T07:22:18.688206+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "temperature": 0.3,
+  "system_prompt_sha256": "9cff399207d88bd2407a362b35a932c8d9e1d5bca3620079a4f24256f4ce5fda",
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe",
+  "answer": {
+    "status": "answered",
+    "claims": [
+      {
+        "field": "top_game_name",
+        "value": "Wii Sports",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Name"
+      },
+      {
+        "field": "top_game_platform",
+        "value": "Wii",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Platform"
+      },
+      {
+        "field": "top_game_global_sales",
+        "value": "82.74",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Global_Sales"
+      },
+      {
+        "field": "second_game_name",
+        "value": "Super Mario Bros.",
+        "evidence_id": "E002",
+        "pointer": "/rows/1/Name"
+      },
+      {
+        "field": "second_game_global_sales",
+        "value": "40.24",
+        "evidence_id": "E002",
+        "pointer": "/rows/1/Global_Sales"
+      }
+    ],
+    "chart_evidence_id": "E003",
+    "explanation": "The top five individual game-platform rows were selected by descending Global_Sales with ties broken by ascending Rank. The top game is 'Wii Sports' on the Wii platform with 82.74 million units sold, followed by 'Super Mario Bros.' on NES with 40.24 million units sold. A bar chart of the top five rows was created with Name on the x axis and Global_Sales on the y axis."
+  },
+  "raw_final_text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"top_game_name\",\"value\":\"Wii Sports\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Name\"},{\"field\":\"top_game_platform\",\"value\":\"Wii\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Platform\"},{\"field\":\"top_game_global_sales\",\"value\":\"82.74\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"},{\"field\":\"second_game_name\",\"value\":\"Super Mario Bros.\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Name\"},{\"field\":\"second_game_global_sales\",\"value\":\"40.24\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Global_Sales\"}],\"chart_evidence_id\":\"E003\",\"explanation\":\"The top five individual game-platform rows were selected by descending Global_Sales with ties broken by ascending Rank. The top game is 'Wii Sports' on the Wii platform with 82.74 million units sold, followed by 'Super Mario Bros.' on NES with 40.24 million units sold. A bar chart of the top five rows was created with Name on the x axis and Global_Sales on the y axis.\"}",
+  "candidates": [
+    {
+      "answer": {
+        "status": "answered",
+        "claims": [
+          {
+            "field": "top_game_name",
+            "value": "Wii Sports",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Name"
+          },
+          {
+            "field": "top_game_platform",
+            "value": "Wii",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Platform"
+          },
+          {
+            "field": "top_game_global_sales",
+            "value": "82.74",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Global_Sales"
+          },
+          {
+            "field": "second_game_name",
+            "value": "Super Mario Bros.",
+            "evidence_id": "E002",
+            "pointer": "/rows/1/Name"
+          },
+          {
+            "field": "second_game_global_sales",
+            "value": "40.24",
+            "evidence_id": "E002",
+            "pointer": "/rows/1/Global_Sales"
+          }
+        ],
+        "chart_evidence_id": "E003",
+        "explanation": "The top five individual game-platform rows were selected by descending Global_Sales with ties broken by ascending Rank. The top game is 'Wii Sports' on the Wii platform with 82.74 million units sold, followed by 'Super Mario Bros.' on NES with 40.24 million units sold. A bar chart of the top five rows was created with Name on the x axis and Global_Sales on the y axis."
+      },
+      "issues": [],
+      "turn": 4
+    }
+  ],
+  "validator_repairs": 0,
+  "validator_blocked": false,
+  "tool_calls": [
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "select",
+        "columns": [
+          "Name",
+          "Platform",
+          "Global_Sales",
+          "Rank"
+        ],
+        "filters": [],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "count",
+        "sort_by": [
+          "Global_Sales",
+          "Rank"
+        ],
+        "descending": true,
+        "limit": 5
+      },
+      "ok": false,
+      "injected": true,
+      "latency_s": 3.2625044696033e-05,
+      "result": {
+        "evidence_id": "E001",
+        "ok": false,
+        "error": "RuntimeError: TRANSIENT_TEST_FAILURE: query service temporarily unavailable; retry the same request once"
+      }
+    },
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "select",
+        "columns": [
+          "Name",
+          "Platform",
+          "Global_Sales",
+          "Rank"
+        ],
+        "filters": [],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "count",
+        "sort_by": [
+          "Global_Sales",
+          "Rank"
+        ],
+        "descending": true,
+        "limit": 5
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.005297833005897701,
+      "result": {
+        "evidence_id": "E002",
+        "ok": true,
+        "matched_source_rows": 16598,
+        "total_result_rows": 16598,
+        "truncated": true,
+        "rows": [
+          {
+            "Name": "Wii Sports",
+            "Platform": "Wii",
+            "Global_Sales": 82.74,
+            "Rank": 1
+          },
+          {
+            "Name": "Super Mario Bros.",
+            "Platform": "NES",
+            "Global_Sales": 40.24,
+            "Rank": 2
+          },
+          {
+            "Name": "Mario Kart Wii",
+            "Platform": "Wii",
+            "Global_Sales": 35.82,
+            "Rank": 3
+          },
+          {
+            "Name": "Wii Sports Resort",
+            "Platform": "Wii",
+            "Global_Sales": 33.0,
+            "Rank": 4
+          },
+          {
+            "Name": "Pokemon Red/Pokemon Blue",
+            "Platform": "GB",
+            "Global_Sales": 31.37,
+            "Rank": 5
+          }
+        ],
+        "query": {
+          "operation": "select",
+          "columns": [
+            "Name",
+            "Platform",
+            "Global_Sales",
+            "Rank"
+          ],
+          "filters": [],
+          "filter_mode": "all",
+          "group_by": [],
+          "aggregation": "count",
+          "sort_by": [
+            "Global_Sales",
+            "Rank"
+          ],
+          "descending": true,
+          "limit": 5
+        }
+      }
+    },
+    {
+      "name": "plot",
+      "arguments": {
+        "evidence_id": "E002",
+        "kind": "bar",
+        "x": "Name",
+        "ys": [
+          "Global_Sales"
+        ],
+        "title": "Top 5 Game-Platform Rows by Global Sales"
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.06556516699492931,
+      "result": {
+        "evidence_id": "E003",
+        "ok": true,
+        "chart_file": "outputs/study_v1/runs/recovery_prompt_Q02_top_games_r1/charts/chart-03.png",
+        "source_evidence_id": "E002",
+        "kind": "bar",
+        "x": "Name",
+        "ys": [
+          "Global_Sales"
+        ],
+        "rows": [
+          {
+            "Name": "Wii Sports",
+            "Platform": "Wii",
+            "Global_Sales": 82.74,
+            "Rank": 1
+          },
+          {
+            "Name": "Super Mario Bros.",
+            "Platform": "NES",
+            "Global_Sales": 40.24,
+            "Rank": 2
+          },
+          {
+            "Name": "Mario Kart Wii",
+            "Platform": "Wii",
+            "Global_Sales": 35.82,
+            "Rank": 3
+          },
+          {
+            "Name": "Wii Sports Resort",
+            "Platform": "Wii",
+            "Global_Sales": 33.0,
+            "Rank": 4
+          },
+          {
+            "Name": "Pokemon Red/Pokemon Blue",
+            "Platform": "GB",
+            "Global_Sales": 31.37,
+            "Rank": 5
+          }
+        ]
+      }
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "response_id": "resp_07892e1e65fbb3b9016ab22ca2fdb887d0b2450548fe1c4315",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_07892e1e65fbb3b9016ab22ca373ec87d0b4bd7e7d3480aac3",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"select\",\"columns\":[\"Name\",\"Platform\",\"Global_Sales\",\"Rank\"],\"filters\":[],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"count\",\"sort_by\":[\"Global_Sales\",\"Rank\"],\"descending\":true,\"limit\":5}",
+          "call_id": "call_eUn7UTdqukPOjzGEM8pNvk5M",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 927,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 61,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 988
+      },
+      "cost_usd": 0.0004684
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_07892e1e65fbb3b9016ab22ca4a5b487d08f857d4be301b460",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_07892e1e65fbb3b9016ab22ca52ac887d0aa1f114d3913ade9",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"select\",\"columns\":[\"Name\",\"Platform\",\"Global_Sales\",\"Rank\"],\"filters\":[],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"count\",\"sort_by\":[\"Global_Sales\",\"Rank\"],\"descending\":true,\"limit\":5}",
+          "call_id": "call_mSXQVV9ITq7ghuwuFSW8jS6p",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1029,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 61,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1090
+      },
+      "cost_usd": 0.0005092
+    },
+    {
+      "turn": 3,
+      "response_id": "resp_07892e1e65fbb3b9016ab22ca6726887d0be51e3d8972f1b54",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_07892e1e65fbb3b9016ab22ca6d1e887d083b282890d5e6161",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"evidence_id\":\"E002\",\"kind\":\"bar\",\"x\":\"Name\",\"ys\":[\"Global_Sales\"],\"title\":\"Top 5 Game-Platform Rows by Global Sales\"}",
+          "call_id": "call_ervbZvaWtV1CHRo5gZWvaPwm",
+          "name": "plot"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1362,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 45,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1407
+      },
+      "cost_usd": 0.0006168
+    },
+    {
+      "turn": 4,
+      "response_id": "resp_07892e1e65fbb3b9016ab22ca80ac487d08f4e36c8e3b5b100",
+      "status": "completed",
+      "output": [
+        {
+          "id": "msg_07892e1e65fbb3b9016ab22ca865d487d090c65792a0411cd7",
+          "type": "message",
+          "status": "completed",
+          "content": [
+            {
+              "type": "output_text",
+              "annotations": [],
+              "logprobs": [],
+              "text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"top_game_name\",\"value\":\"Wii Sports\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Name\"},{\"field\":\"top_game_platform\",\"value\":\"Wii\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Platform\"},{\"field\":\"top_game_global_sales\",\"value\":\"82.74\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"},{\"field\":\"second_game_name\",\"value\":\"Super Mario Bros.\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Name\"},{\"field\":\"second_game_global_sales\",\"value\":\"40.24\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/1/Global_Sales\"}],\"chart_evidence_id\":\"E003\",\"explanation\":\"The top five individual game-platform rows were selected by descending Global_Sales with ties broken by ascending Rank. The top game is 'Wii Sports' on the Wii platform with 82.74 million units sold, followed by 'Super Mario Bros.' on NES with 40.24 million units sold. A bar chart of the top five rows was created with Name on the x axis and Global_Sales on the y axis.\"}"
+            }
+          ],
+          "role": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1643,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1152
+        },
+        "output_tokens": 258,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1901
+      },
+      "cost_usd": 0.0007244
+    }
+  ],
+  "error": null,
+  "failure_injected": true,
+  "latency_s": 8.324795499967877,
+  "input_tokens": 4961,
+  "cached_input_tokens": 1152,
+  "output_tokens": 425,
+  "cost_usd": 0.0023188,
+  "api_calls": 4
+}

@@ -1,0 +1,314 @@
+{
+  "run_id": "main_baseline_Q06_publishers_r3",
+  "phase": "main",
+  "condition": "baseline",
+  "question_id": "Q06_publishers",
+  "replication": 3,
+  "inject_failure": false,
+  "timestamp": "2026-09-22T07:11:53.034671+00:00",
+  "finished_at": "2026-09-22T07:11:57.482004+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "temperature": 0.3,
+  "system_prompt_sha256": "e2333acb01009fd126ee6a690433b32c5a5982d4a64100a5f6681e7002f6d17d",
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe",
+  "answer": {
+    "status": "answered",
+    "claims": [
+      {
+        "field": "top_publisher",
+        "value": "Nintendo",
+        "evidence_id": "E001",
+        "pointer": "/rows/0/Publisher"
+      },
+      {
+        "field": "top_publisher_global_sales",
+        "value": "883.89",
+        "evidence_id": "E001",
+        "pointer": "/rows/0/Global_Sales"
+      }
+    ],
+    "chart_evidence_id": "E002",
+    "explanation": "Filtered dataset for years 2000-2009 and non-missing Publisher values, then aggregated Global_Sales by Publisher. Sorted descending by sales and ascending by publisher name to break ties. Returned top 5 and created a bar chart for them."
+  },
+  "raw_final_text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"top_publisher\",\"value\":\"Nintendo\",\"evidence_id\":\"E001\",\"pointer\":\"/rows/0/Publisher\"},{\"field\":\"top_publisher_global_sales\",\"value\":\"883.89\",\"evidence_id\":\"E001\",\"pointer\":\"/rows/0/Global_Sales\"}],\"chart_evidence_id\":\"E002\",\"explanation\":\"Filtered dataset for years 2000-2009 and non-missing Publisher values, then aggregated Global_Sales by Publisher. Sorted descending by sales and ascending by publisher name to break ties. Returned top 5 and created a bar chart for them.\"}",
+  "candidates": [
+    {
+      "answer": {
+        "status": "answered",
+        "claims": [
+          {
+            "field": "top_publisher",
+            "value": "Nintendo",
+            "evidence_id": "E001",
+            "pointer": "/rows/0/Publisher"
+          },
+          {
+            "field": "top_publisher_global_sales",
+            "value": "883.89",
+            "evidence_id": "E001",
+            "pointer": "/rows/0/Global_Sales"
+          }
+        ],
+        "chart_evidence_id": "E002",
+        "explanation": "Filtered dataset for years 2000-2009 and non-missing Publisher values, then aggregated Global_Sales by Publisher. Sorted descending by sales and ascending by publisher name to break ties. Returned top 5 and created a bar chart for them."
+      },
+      "issues": [],
+      "turn": 3
+    }
+  ],
+  "validator_repairs": 0,
+  "validator_blocked": false,
+  "tool_calls": [
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "aggregate",
+        "columns": [
+          "Global_Sales"
+        ],
+        "filters": [
+          {
+            "column": "Year",
+            "operator": "ge",
+            "value": "2000"
+          },
+          {
+            "column": "Year",
+            "operator": "le",
+            "value": "2009"
+          },
+          {
+            "column": "Publisher",
+            "operator": "not_null",
+            "value": null
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [
+          "Publisher"
+        ],
+        "aggregation": "sum",
+        "sort_by": [
+          "Global_Sales",
+          "Publisher"
+        ],
+        "descending": true,
+        "limit": 5
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.005445708986371756,
+      "result": {
+        "evidence_id": "E001",
+        "ok": true,
+        "matched_source_rows": 9183,
+        "total_result_rows": 342,
+        "truncated": true,
+        "rows": [
+          {
+            "Publisher": "Nintendo",
+            "Global_Sales": 883.89
+          },
+          {
+            "Publisher": "Electronic Arts",
+            "Global_Sales": 647.49
+          },
+          {
+            "Publisher": "Activision",
+            "Global_Sales": 381.45
+          },
+          {
+            "Publisher": "Sony Computer Entertainment",
+            "Global_Sales": 311.21
+          },
+          {
+            "Publisher": "THQ",
+            "Global_Sales": 264.8
+          }
+        ],
+        "query": {
+          "operation": "aggregate",
+          "columns": [
+            "Global_Sales"
+          ],
+          "filters": [
+            {
+              "column": "Year",
+              "operator": "ge",
+              "value": "2000"
+            },
+            {
+              "column": "Year",
+              "operator": "le",
+              "value": "2009"
+            },
+            {
+              "column": "Publisher",
+              "operator": "not_null",
+              "value": null
+            }
+          ],
+          "filter_mode": "all",
+          "group_by": [
+            "Publisher"
+          ],
+          "aggregation": "sum",
+          "sort_by": [
+            "Global_Sales",
+            "Publisher"
+          ],
+          "descending": true,
+          "limit": 5
+        }
+      }
+    },
+    {
+      "name": "plot",
+      "arguments": {
+        "evidence_id": "E001",
+        "kind": "bar",
+        "x": "Publisher",
+        "ys": [
+          "Global_Sales"
+        ],
+        "title": "Top 5 Publishers by Global Sales (2000-2009)"
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.09224941703723744,
+      "result": {
+        "evidence_id": "E002",
+        "ok": true,
+        "chart_file": "outputs/study_v1/runs/main_baseline_Q06_publishers_r3/charts/chart-02.png",
+        "source_evidence_id": "E001",
+        "kind": "bar",
+        "x": "Publisher",
+        "ys": [
+          "Global_Sales"
+        ],
+        "rows": [
+          {
+            "Publisher": "Nintendo",
+            "Global_Sales": 883.89
+          },
+          {
+            "Publisher": "Electronic Arts",
+            "Global_Sales": 647.49
+          },
+          {
+            "Publisher": "Activision",
+            "Global_Sales": 381.45
+          },
+          {
+            "Publisher": "Sony Computer Entertainment",
+            "Global_Sales": 311.21
+          },
+          {
+            "Publisher": "THQ",
+            "Global_Sales": 264.8
+          }
+        ]
+      }
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "response_id": "resp_09f5818ded6bbf7e016ab22a39368c87d0a8e8d76784ee02e1",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_09f5818ded6bbf7e016ab22a39a85887d08e0b540e1ee6ac6f",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"aggregate\",\"columns\":[\"Global_Sales\"],\"filters\":[{\"column\":\"Year\",\"operator\":\"ge\",\"value\":\"2000\"},{\"column\":\"Year\",\"operator\":\"le\",\"value\":\"2009\"},{\"column\":\"Publisher\",\"operator\":\"not_null\",\"value\":null}],\"filter_mode\":\"all\",\"group_by\":[\"Publisher\"],\"aggregation\":\"sum\",\"sort_by\":[\"Global_Sales\",\"Publisher\"],\"descending\":true,\"limit\":5}",
+          "call_id": "call_NoRGA3zLOFMBsiKmaMYrRLT4",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 762,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 97,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 859
+      },
+      "cost_usd": 0.00046
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_09f5818ded6bbf7e016ab22a3adb8c87d0a4f31b9a9c27b3a9",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_09f5818ded6bbf7e016ab22a3b558487d0ad9b55b07f847491",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"evidence_id\":\"E001\",\"kind\":\"bar\",\"x\":\"Publisher\",\"ys\":[\"Global_Sales\"],\"title\":\"Top 5 Publishers by Global Sales (2000-2009)\"}",
+          "call_id": "call_RtkgF9Fr9jyoIo9mj4BUw8fT",
+          "name": "plot"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1107,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 49,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1156
+      },
+      "cost_usd": 0.0005212000000000001
+    },
+    {
+      "turn": 3,
+      "response_id": "resp_09f5818ded6bbf7e016ab22a3c193087d0ae34e2621a57ed51",
+      "status": "completed",
+      "output": [
+        {
+          "id": "msg_09f5818ded6bbf7e016ab22a3c741887d0a2665689c3833541",
+          "type": "message",
+          "status": "completed",
+          "content": [
+            {
+              "type": "output_text",
+              "annotations": [],
+              "logprobs": [],
+              "text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"top_publisher\",\"value\":\"Nintendo\",\"evidence_id\":\"E001\",\"pointer\":\"/rows/0/Publisher\"},{\"field\":\"top_publisher_global_sales\",\"value\":\"883.89\",\"evidence_id\":\"E001\",\"pointer\":\"/rows/0/Global_Sales\"}],\"chart_evidence_id\":\"E002\",\"explanation\":\"Filtered dataset for years 2000-2009 and non-missing Publisher values, then aggregated Global_Sales by Publisher. Sorted descending by sales and ascending by publisher name to break ties. Returned top 5 and created a bar chart for them.\"}"
+            }
+          ],
+          "role": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1321,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 135,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1456
+      },
+      "cost_usd": 0.0007444000000000001
+    }
+  ],
+  "error": null,
+  "failure_injected": false,
+  "latency_s": 4.449085417028982,
+  "input_tokens": 3190,
+  "cached_input_tokens": 0,
+  "output_tokens": 281,
+  "cost_usd": 0.0017256000000000003,
+  "api_calls": 3
+}

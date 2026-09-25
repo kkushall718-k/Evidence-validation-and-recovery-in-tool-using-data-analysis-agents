@@ -1,0 +1,605 @@
+{
+  "verification_date": "2026-09-23",
+  "method": "Fresh extraction, exact-checksum local CSV supplied separately, existing pinned Python environment; no API calls",
+  "frozen_records_and_original_numeric_outputs_unchanged": true,
+  "original_files_checked": 14,
+  "tests_passed": 18,
+  "analysis_csv_json_files_reproduced_byte_for_byte": 17,
+  "analysis_files": [
+    "audit_summary.json",
+    "condition_comparisons.csv",
+    "human_review.csv",
+    "metric_summary.csv",
+    "per_question.csv",
+    "posthoc_numeric_variance.csv",
+    "posthoc_review_calls.csv",
+    "posthoc_review_receipt.json",
+    "posthoc_review_runs.csv",
+    "posthoc_review_summary.csv",
+    "posthoc_sensitivity.csv",
+    "posthoc_sensitivity_runs.csv",
+    "posthoc_variance.csv",
+    "readiness.json",
+    "reliability.csv",
+    "run_scores.csv",
+    "validator_challenges.json"
+  ],
+  "notebook_executed_code_cells": 12,
+  "independent_evidence_audit": {
+    "scope": "Local evidence integrity and independent recomputation, not provider-side billing/authenticity certification",
+    "runs": 198,
+    "unique_response_ids": 583,
+    "ledger_settlements_including_smoke": 584,
+    "tool_calls": 385,
+    "saved_chart_files": 69,
+    "dataset_rows": 16598,
+    "all_198_task_scores_match_independent_recomputation": true,
+    "source_checks": {
+      "evaluate.py": {
+        "current_matches": false,
+        "archived_matches": true
+      },
+      "ground_truth.py": {
+        "current_matches": true,
+        "archived_matches": false
+      },
+      "run_experiment.py": {
+        "current_matches": true,
+        "archived_matches": false
+      },
+      "smoke_test.py": {
+        "current_matches": true,
+        "archived_matches": false
+      },
+      "study.py": {
+        "current_matches": true,
+        "archived_matches": false
+      }
+    },
+    "experiment_cost": 0.32512840000000004,
+    "ledger_cost_including_smoke": 0.32536400000000004,
+    "summary": {
+      "baseline": {
+        "answerable_runs": 30,
+        "answerable_success": 30,
+        "correct_fields": 100,
+        "requested_fields": 100,
+        "charts": 20,
+        "correct_charts": 20,
+        "unsupported_runs": 30,
+        "strict_abstention": 0,
+        "relaxed_abstention": 15,
+        "nonnull_claim": 10,
+        "numeric_claim": 9,
+        "error_status": 5,
+        "recovery_exposed": 6,
+        "recovery_success": 6,
+        "main_tool_calls": 105,
+        "main_tool_success": 95,
+        "repairs": 0,
+        "blocked": 0,
+        "main_cost": 0.09172680000000001,
+        "median_latency": 4.78185768800904,
+        "outcome_consistent_groups": 12
+      },
+      "prompt": {
+        "answerable_runs": 30,
+        "answerable_success": 30,
+        "correct_fields": 100,
+        "requested_fields": 100,
+        "charts": 20,
+        "correct_charts": 20,
+        "unsupported_runs": 30,
+        "strict_abstention": 28,
+        "relaxed_abstention": 28,
+        "nonnull_claim": 2,
+        "numeric_claim": 2,
+        "error_status": 0,
+        "recovery_exposed": 6,
+        "recovery_success": 6,
+        "main_tool_calls": 115,
+        "main_tool_success": 98,
+        "repairs": 0,
+        "blocked": 0,
+        "main_cost": 0.09796200000000001,
+        "median_latency": 5.138378729490796,
+        "outcome_consistent_groups": 11
+      },
+      "verified": {
+        "answerable_runs": 30,
+        "answerable_success": 30,
+        "correct_fields": 100,
+        "requested_fields": 100,
+        "charts": 20,
+        "correct_charts": 20,
+        "unsupported_runs": 30,
+        "strict_abstention": 29,
+        "relaxed_abstention": 29,
+        "nonnull_claim": 1,
+        "numeric_claim": 1,
+        "error_status": 0,
+        "recovery_exposed": 6,
+        "recovery_success": 6,
+        "main_tool_calls": 111,
+        "main_tool_success": 97,
+        "repairs": 0,
+        "blocked": 0,
+        "main_cost": 0.0955252,
+        "median_latency": 5.041227458510548,
+        "outcome_consistent_groups": 11
+      }
+    },
+    "task_success_sample_variance": [
+      {
+        "condition": "baseline",
+        "question_id": "Q03_release_year",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "Q04_regions",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "A01_profit",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "A06_population",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "Q06_publishers",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "Q05_filtered",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "A05_transaction_year",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "A03_distribution",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "Q01_quality",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "Q02_top_games",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "A04_causality",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "baseline",
+        "question_id": "A02_reviews",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "Q03_release_year",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "Q04_regions",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "A01_profit",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "A06_population",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "Q06_publishers",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "Q05_filtered",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "A05_transaction_year",
+        "n": 5,
+        "sample_variance_success": 0.3,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "A03_distribution",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "Q01_quality",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "Q02_top_games",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "A04_causality",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "prompt",
+        "question_id": "A02_reviews",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "Q03_release_year",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "Q04_regions",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "A01_profit",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "A06_population",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "Q06_publishers",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "Q05_filtered",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "A05_transaction_year",
+        "n": 5,
+        "sample_variance_success": 0.2,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "A03_distribution",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "Q01_quality",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "Q02_top_games",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "A04_causality",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      },
+      {
+        "condition": "verified",
+        "question_id": "A02_reviews",
+        "n": 5,
+        "sample_variance_success": 0,
+        "analysis_status": "post hoc review diagnostic; not added to frozen outcomes"
+      }
+    ]
+  },
+  "document": {
+    "main_text_words": 9715,
+    "rendered_pages": 47,
+    "linked_contents_entries": 59,
+    "all_pages_visually_inspected": true,
+    "numbered_tables": 7,
+    "numbered_figures": 3,
+    "rendered_contents_page_numbers_match": true,
+    "numeric_results_and_resource_table_cells_checked": true,
+    "visual_verification_method": "All 47 pages of the final shortened DOCX rendered and visually inspected; all 59 contents destinations checked against rendered text.",
+    "main_text_word_method": "Diagnostic alphanumeric-token subtotal; not submission count",
+    "total_document_words": 12000,
+    "total_document_word_method": "Native LibreOffice Writer whole-document count; no section exclusions"
+  },
+  "viva": {
+    "slides": 10,
+    "all_slides_visually_inspected": true,
+    "native_chart_workbook_parts_preserved": 6,
+    "native_PowerPoint_opening_verified": false,
+    "speaker_note_timing_seconds": 600,
+    "notes_contain_current_supplementary_values": true,
+    "visual_verification_method": "Nine slide renders byte-identical to the prior inspected deck; corrected slide 9 inspected at full size."
+  },
+  "notebook_html_visually_inspected": true,
+  "artifact_sha256": {
+    "Kushal_Krishnamurthy_Viva.pptx": "eca763ca93d7ac88d64ffc7fd983e50f7a9e75c7839de3322fa973e3e6a8ec3b",
+    "Kushal_Krishnamurthy_Dissertation.docx": "4159bf68338bf1de28306d965ef33ef55c7cbdf1a88d49e3e5111565f5021f07"
+  },
+  "limitations": [
+    "Semantic/prose ratings are post hoc, unblinded, AI-assisted and not independently human-validated",
+    "Local trace and ledger consistency does not authenticate provider records or reconcile an invoice",
+    "Source CSV is acquired separately at the documented checksum",
+    "Four intentional personal-detail placeholders and current Canvas requirements remain author actions",
+    "Frozen context repeats a source-card sales threshold contradicted by recorded CSV values; disclosed as a historical design limitation",
+    "Current Canvas rules, exact Harvard variant and originality report are not independently verified; the author confirmed all sections count",
+    "Viva related-work/backup slide recommendations remain refinements; actual rehearsal is not verified",
+    "Supplementary labels were materialised using fixed exceptions and specialised rules; they are not 198 independently logged model-judge calls",
+    "Historical evaluator model snapshot, settings, complete instructions and interactive batches were not retained",
+    "The exact external -2.docx named by the screenshot review was not supplied",
+    "Complete document counts 12000 in LibreOffice; native Microsoft Word count is unverified. Recount after filling personal details or updating fields. Raster figure labels are not OCR-counted by the editor."
+  ],
+  "original_hashes_before_revision": {
+    "outputs/study_v1/runs.jsonl": "a45ad92accbf86c0f395685073ff77d72660960fdad119fa15d72564a5a5e15c",
+    "outputs/study_v1/manifest.json": "cab9e4e643f3f67f8521933ef26e224781dbabdc00479828b8e772945db3801f",
+    "PROTOCOL.md": "aab67d208e6a788ccc1980fc685aad385f7d3aeb5da43b840ef6aeb669bfe455",
+    "outputs/study_v1/analysis/condition_comparisons.csv": "237d5fbf9b6d9c53f912b59b936b39f0a778c9a2a49cb150719740243f8cb357",
+    "outputs/study_v1/analysis/human_review.csv": "74a68903d259cfdeafdfa37cc7c998d6b4d2fb466b90293fc4c207cfab8a17bf",
+    "outputs/study_v1/analysis/metric_summary.csv": "411914ddb175ad815b38df8f3dd54225848b2df6c566aea954eaebb2981bd60d",
+    "outputs/study_v1/analysis/per_question.csv": "f3810c5be1211081560d03ba70dbae599e3d1e9539ffceaf0b39d98e0201dcb6",
+    "outputs/study_v1/analysis/posthoc_sensitivity.csv": "ebf615e7f378ccafa43be1edf9929e36479ae7e862cd72570581c4950ac40813",
+    "outputs/study_v1/analysis/posthoc_sensitivity_runs.csv": "8c74187bdb7201f1b3b3208bf59f4b638b413508afc82d1533b2c530cfb2f391",
+    "outputs/study_v1/analysis/reliability.csv": "03f2e2fdd898e189f25fac4ad60956e9ddd002e39865d0f422bfb51560976aa8",
+    "outputs/study_v1/analysis/run_scores.csv": "ff2d55a99caeb0bf4e8c7f740add9e9c7d9a9bd1e2bd5d302f6c3c6c61a1ed86",
+    "outputs/study_v1/analysis/audit_summary.json": "266ffbdbe509c4380dcb5b17f2d14d87c55af3981d9dce6ab5ecc6028a85833f",
+    "outputs/study_v1/analysis/readiness.json": "be3177b58dd0e7efdaa242f14cab49122303608dc9e8f0fd5c3992c11b3a0fe2",
+    "outputs/study_v1/analysis/validator_challenges.json": "02e72fb1aa78397e7fd547a0e30b2bd710fbc2475ffec1fc0f3412c2b65c3d6f"
+  },
+  "analysis_sha256": {
+    "outputs/study_v1/analysis/posthoc_review_receipt.json": "64bb1f486c8f9aa625e1a090e0287df12fa3411d8063111cc7e2a167a88f52df",
+    "outputs/study_v1/analysis/posthoc_numeric_variance.csv": "5cd622a4d07f5a83c556c1ba5645bfd48c1fbbd8566c9f506c121adc5dc68f57",
+    "outputs/study_v1/analysis/posthoc_review_calls.csv": "63e07b4ea32e52394fa0decb4ffe8a57ca682e1f0422572e6bb3e64516958ec4",
+    "outputs/study_v1/analysis/metric_summary.csv": "411914ddb175ad815b38df8f3dd54225848b2df6c566aea954eaebb2981bd60d",
+    "outputs/study_v1/analysis/posthoc_sensitivity_runs.csv": "8c74187bdb7201f1b3b3208bf59f4b638b413508afc82d1533b2c530cfb2f391",
+    "outputs/study_v1/analysis/reliability.csv": "03f2e2fdd898e189f25fac4ad60956e9ddd002e39865d0f422bfb51560976aa8",
+    "outputs/study_v1/analysis/posthoc_review_runs.csv": "ccbf88ddf85739c5a924a43056e5b51502a09200049c4c695cd73b251cd33a59",
+    "outputs/study_v1/analysis/validator_challenges.json": "02e72fb1aa78397e7fd547a0e30b2bd710fbc2475ffec1fc0f3412c2b65c3d6f",
+    "outputs/study_v1/analysis/posthoc_variance.csv": "5018906debeea9be46f97e10150f239af57e4ebf8e075bbe2ebb59548f481bf1",
+    "outputs/study_v1/analysis/per_question.csv": "f3810c5be1211081560d03ba70dbae599e3d1e9539ffceaf0b39d98e0201dcb6",
+    "outputs/study_v1/analysis/human_review.csv": "74a68903d259cfdeafdfa37cc7c998d6b4d2fb466b90293fc4c207cfab8a17bf",
+    "outputs/study_v1/analysis/readiness.json": "be3177b58dd0e7efdaa242f14cab49122303608dc9e8f0fd5c3992c11b3a0fe2",
+    "outputs/study_v1/analysis/posthoc_sensitivity.csv": "ebf615e7f378ccafa43be1edf9929e36479ae7e862cd72570581c4950ac40813",
+    "outputs/study_v1/analysis/run_scores.csv": "ff2d55a99caeb0bf4e8c7f740add9e9c7d9a9bd1e2bd5d302f6c3c6c61a1ed86",
+    "outputs/study_v1/analysis/condition_comparisons.csv": "237d5fbf9b6d9c53f912b59b936b39f0a778c9a2a49cb150719740243f8cb357",
+    "outputs/study_v1/analysis/audit_summary.json": "266ffbdbe509c4380dcb5b17f2d14d87c55af3981d9dce6ab5ecc6028a85833f",
+    "outputs/study_v1/analysis/posthoc_review_summary.csv": "61b469ce76791f55ea9c625711a10133ac247d466a6e78d70bea4af65b21f018"
+  },
+  "supplementary_review_version": 2,
+  "supplementary_correction": {
+    "prose_labels_changed": 15,
+    "rationale_only_records_changed": 27,
+    "main_unsupported_prose_counts": {
+      "baseline": 9,
+      "prompt": 6,
+      "verified": 5
+    },
+    "main_unsupported_or_ambiguous_counts": {
+      "baseline": 13,
+      "prompt": 8,
+      "verified": 12
+    },
+    "primary_scores_changed": false,
+    "reasoning_scores_changed": false,
+    "tool_scores_changed": false,
+    "annotations_sha256": "81386a6815bb568b3f91599e57a3351121c4757c64ff80c02c05b241c44ef2c8",
+    "rubric_sha256": "8830df7f2524036f7050a5d3be9777ee989f39c5d8f17dbc612938c30986c7d2",
+    "source_premise_limitation_preserved": true
+  },
+  "second_review_disclosure": {
+    "date": "2026-09-23",
+    "raw_records_annotations_and_numeric_outputs_unchanged": true,
+    "original_authoring_records_match_archived_v1": 198,
+    "original_call_annotations": 385,
+    "historical_authoring_source_included_as_inert_text": true,
+    "evaluator_model_snapshot_settings_full_instructions": "not retained",
+    "human_label_verification": "not documented",
+    "main_text_whitespace_tokens": 12010,
+    "main_text_alphanumeric_tokens": 12000,
+    "difference": "10 standalone slash symbols in tables",
+    "rendered_pages": 51,
+    "changed_pages_inspected": [
+      24,
+      26,
+      27,
+      41,
+      50,
+      51
+    ],
+    "cost_recalculated_for_runs": 198,
+    "cost_usd": "0.3251284",
+    "prose_partition_inherited": [
+      5,
+      5,
+      5
+    ],
+    "prose_partition_other": [
+      4,
+      1,
+      0
+    ],
+    "analysis_reproduction_evidence": "Prior fresh-extraction reproduction reused; all relevant records, annotations, rubrics and evaluation logic match the prior verified package byte-for-byte. No new model calls.",
+    "historical_layout_note": "Counts and page inspection above describe the preceding disclosure revision; superseded by whole_document_optimization and document for current layout."
+  },
+  "word_count_compliance": {
+    "status": "12000 target met in native LibreOffice complete-document count",
+    "project_count_main": 9715,
+    "project_count_full_body": 11966,
+    "libreoffice_full_with_header_footer": 12000,
+    "native_Microsoft_Word_count": "not verified",
+    "institutional_counted_sections": "All sections included as explicitly confirmed by author",
+    "report": "documentation/Word_Count_Audit.md"
+  },
+  "whole_document_optimization": {
+    "timestamp_utc": "2026-09-24T00:46:15.785672+00:00",
+    "before_words": 15525,
+    "after_words": 12000,
+    "counter": "LibreOfficeDev/26.8.0.0.alpha0$MacOSX_AARCH64 LibreOffice_project/2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+    "before_pages": 51,
+    "after_pages": 47,
+    "frozen_files_unchanged": 308,
+    "unchanged_main_tables": 6,
+    "unchanged_bibliography_entries": 20,
+    "bibliography_entries_still_cited": 20,
+    "visually_inspected_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47
+    ],
+    "native_count_receipt": {
+      "file_name": "Kushal_Krishnamurthy_Dissertation.docx",
+      "docx_sha256": "4159bf68338bf1de28306d965ef33ef55c7cbdf1a88d49e3e5111565f5021f07",
+      "application": "LibreOffice Writer",
+      "generator": "LibreOfficeDev/26.8.0.0.alpha0$MacOSX_AARCH64 LibreOffice_project/2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+      "scope": "Complete document; no section exclusions; editor handling of headers, footers and fields",
+      "words": 12000,
+      "expected_words": 12000,
+      "matches_expected": true,
+      "temporary_odt_sha256": "76aac3c966afcacb805bce48b3ee790ff8a44c6ce3ff51d90d0cb80b8ff0eeec",
+      "source_unchanged": true,
+      "native_Microsoft_Word_count_verified": false,
+      "raster_image_text_transcribed": false
+    },
+    "technical_companion": "documentation/Complete_Experimental_Materials.md",
+    "test_scope": "Document-only revision. Prior 18-test and 17-analysis-file reproduction results retained; experimental source, inputs and outputs unchanged. Native editor verifier was run successfully; no new API calls."
+  }
+}

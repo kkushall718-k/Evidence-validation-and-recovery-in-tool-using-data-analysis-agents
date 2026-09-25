@@ -1,0 +1,404 @@
+{
+  "run_id": "recovery_prompt_Q05_filtered_r1",
+  "phase": "recovery",
+  "condition": "prompt",
+  "question_id": "Q05_filtered",
+  "replication": 1,
+  "inject_failure": true,
+  "timestamp": "2026-09-22T07:21:33.741724+00:00",
+  "finished_at": "2026-09-22T07:21:42.851098+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "temperature": 0.3,
+  "system_prompt_sha256": "9cff399207d88bd2407a362b35a932c8d9e1d5bca3620079a4f24256f4ce5fda",
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe",
+  "answer": {
+    "status": "answered",
+    "claims": [
+      {
+        "field": "matching_rows",
+        "value": "138",
+        "evidence_id": "E003",
+        "pointer": "/rows/0/row_count"
+      },
+      {
+        "field": "global_sales_total",
+        "value": "324.24",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Global_Sales"
+      }
+    ],
+    "chart_evidence_id": null,
+    "explanation": "Filtered dataset by Publisher = Nintendo, Platform = DS, and Year between 2005 and 2010 inclusive. Counted matching rows and summed Global_Sales for those rows."
+  },
+  "raw_final_text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"matching_rows\",\"value\":\"138\",\"evidence_id\":\"E003\",\"pointer\":\"/rows/0/row_count\"},{\"field\":\"global_sales_total\",\"value\":\"324.24\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"}],\"chart_evidence_id\":null,\"explanation\":\"Filtered dataset by Publisher = Nintendo, Platform = DS, and Year between 2005 and 2010 inclusive. Counted matching rows and summed Global_Sales for those rows.\"}",
+  "candidates": [
+    {
+      "answer": {
+        "status": "answered",
+        "claims": [
+          {
+            "field": "matching_rows",
+            "value": "138",
+            "evidence_id": "E003",
+            "pointer": "/rows/0/row_count"
+          },
+          {
+            "field": "global_sales_total",
+            "value": "324.24",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Global_Sales"
+          }
+        ],
+        "chart_evidence_id": null,
+        "explanation": "Filtered dataset by Publisher = Nintendo, Platform = DS, and Year between 2005 and 2010 inclusive. Counted matching rows and summed Global_Sales for those rows."
+      },
+      "issues": [],
+      "turn": 4
+    }
+  ],
+  "validator_repairs": 0,
+  "validator_blocked": false,
+  "tool_calls": [
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "aggregate",
+        "columns": [
+          "Global_Sales"
+        ],
+        "filters": [
+          {
+            "column": "Publisher",
+            "operator": "eq",
+            "value": "Nintendo"
+          },
+          {
+            "column": "Platform",
+            "operator": "eq",
+            "value": "DS"
+          },
+          {
+            "column": "Year",
+            "operator": "ge",
+            "value": "2005"
+          },
+          {
+            "column": "Year",
+            "operator": "le",
+            "value": "2010"
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "sum",
+        "sort_by": [],
+        "descending": false,
+        "limit": 50
+      },
+      "ok": false,
+      "injected": true,
+      "latency_s": 2.9416987672448158e-05,
+      "result": {
+        "evidence_id": "E001",
+        "ok": false,
+        "error": "RuntimeError: TRANSIENT_TEST_FAILURE: query service temporarily unavailable; retry the same request once"
+      }
+    },
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "aggregate",
+        "columns": [
+          "Global_Sales"
+        ],
+        "filters": [
+          {
+            "column": "Publisher",
+            "operator": "eq",
+            "value": "Nintendo"
+          },
+          {
+            "column": "Platform",
+            "operator": "eq",
+            "value": "DS"
+          },
+          {
+            "column": "Year",
+            "operator": "ge",
+            "value": "2005"
+          },
+          {
+            "column": "Year",
+            "operator": "le",
+            "value": "2010"
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "sum",
+        "sort_by": [],
+        "descending": false,
+        "limit": 50
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.006701582984533161,
+      "result": {
+        "evidence_id": "E002",
+        "ok": true,
+        "matched_source_rows": 138,
+        "total_result_rows": 1,
+        "truncated": false,
+        "rows": [
+          {
+            "Global_Sales": 324.24
+          }
+        ],
+        "query": {
+          "operation": "aggregate",
+          "columns": [
+            "Global_Sales"
+          ],
+          "filters": [
+            {
+              "column": "Publisher",
+              "operator": "eq",
+              "value": "Nintendo"
+            },
+            {
+              "column": "Platform",
+              "operator": "eq",
+              "value": "DS"
+            },
+            {
+              "column": "Year",
+              "operator": "ge",
+              "value": "2005"
+            },
+            {
+              "column": "Year",
+              "operator": "le",
+              "value": "2010"
+            }
+          ],
+          "filter_mode": "all",
+          "group_by": [],
+          "aggregation": "sum",
+          "sort_by": [],
+          "descending": false,
+          "limit": 50
+        }
+      }
+    },
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "count",
+        "columns": [],
+        "filters": [
+          {
+            "column": "Publisher",
+            "operator": "eq",
+            "value": "Nintendo"
+          },
+          {
+            "column": "Platform",
+            "operator": "eq",
+            "value": "DS"
+          },
+          {
+            "column": "Year",
+            "operator": "ge",
+            "value": "2005"
+          },
+          {
+            "column": "Year",
+            "operator": "le",
+            "value": "2010"
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "count",
+        "sort_by": [],
+        "descending": false,
+        "limit": 50
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.0049852089723572135,
+      "result": {
+        "evidence_id": "E003",
+        "ok": true,
+        "matched_source_rows": 138,
+        "total_result_rows": 1,
+        "truncated": false,
+        "rows": [
+          {
+            "row_count": 138
+          }
+        ],
+        "query": {
+          "operation": "count",
+          "columns": [],
+          "filters": [
+            {
+              "column": "Publisher",
+              "operator": "eq",
+              "value": "Nintendo"
+            },
+            {
+              "column": "Platform",
+              "operator": "eq",
+              "value": "DS"
+            },
+            {
+              "column": "Year",
+              "operator": "ge",
+              "value": "2005"
+            },
+            {
+              "column": "Year",
+              "operator": "le",
+              "value": "2010"
+            }
+          ],
+          "filter_mode": "all",
+          "group_by": [],
+          "aggregation": "count",
+          "sort_by": [],
+          "descending": false,
+          "limit": 50
+        }
+      }
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "response_id": "resp_05bee5e816d95cdc016ab22c7e4e4087d0aeb3aadf3e8f4a26",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_05bee5e816d95cdc016ab22c7ebfa487d0ad336c26188c788b",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"aggregate\",\"columns\":[\"Global_Sales\"],\"filters\":[{\"column\":\"Publisher\",\"operator\":\"eq\",\"value\":\"Nintendo\"},{\"column\":\"Platform\",\"operator\":\"eq\",\"value\":\"DS\"},{\"column\":\"Year\",\"operator\":\"ge\",\"value\":\"2005\"},{\"column\":\"Year\",\"operator\":\"le\",\"value\":\"2010\"}],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"sum\",\"sort_by\":[],\"descending\":false,\"limit\":50}",
+          "call_id": "call_GNu1RHzOy5BcfVm3v6UYezZs",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 902,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 100,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1002
+      },
+      "cost_usd": 0.0005208000000000001
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_05bee5e816d95cdc016ab22c804b8887d0b12db81244d57fcd",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_05bee5e816d95cdc016ab22c80c23887d0bb229a00383b596e",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"aggregate\",\"columns\":[\"Global_Sales\"],\"filters\":[{\"column\":\"Publisher\",\"operator\":\"eq\",\"value\":\"Nintendo\"},{\"column\":\"Platform\",\"operator\":\"eq\",\"value\":\"DS\"},{\"column\":\"Year\",\"operator\":\"ge\",\"value\":\"2005\"},{\"column\":\"Year\",\"operator\":\"le\",\"value\":\"2010\"}],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"sum\",\"sort_by\":[],\"descending\":false,\"limit\":50}",
+          "call_id": "call_OZsmsQClVhc49Qn9mcrqkH9W",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1043,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 100,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1143
+      },
+      "cost_usd": 0.0005772
+    },
+    {
+      "turn": 3,
+      "response_id": "resp_05bee5e816d95cdc016ab22c8251e887d0ad89e59e35b75193",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_05bee5e816d95cdc016ab22c82e96c87d0a8d10406877861be",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"count\",\"columns\":[],\"filters\":[{\"column\":\"Publisher\",\"operator\":\"eq\",\"value\":\"Nintendo\"},{\"column\":\"Platform\",\"operator\":\"eq\",\"value\":\"DS\"},{\"column\":\"Year\",\"operator\":\"ge\",\"value\":\"2005\"},{\"column\":\"Year\",\"operator\":\"le\",\"value\":\"2010\"}],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"count\",\"sort_by\":[],\"descending\":false,\"limit\":50}",
+          "call_id": "call_CQOfyRITYVCx1ZSBgQngiAj6",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1325,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 96,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1421
+      },
+      "cost_usd": 0.0006836000000000001
+    },
+    {
+      "turn": 4,
+      "response_id": "resp_05bee5e816d95cdc016ab22c84eb0487d0b9a47c7c5e170381",
+      "status": "completed",
+      "output": [
+        {
+          "id": "msg_05bee5e816d95cdc016ab22c85883c87d0b97122cffd44c961",
+          "type": "message",
+          "status": "completed",
+          "content": [
+            {
+              "type": "output_text",
+              "annotations": [],
+              "logprobs": [],
+              "text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"matching_rows\",\"value\":\"138\",\"evidence_id\":\"E003\",\"pointer\":\"/rows/0/row_count\"},{\"field\":\"global_sales_total\",\"value\":\"324.24\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"}],\"chart_evidence_id\":null,\"explanation\":\"Filtered dataset by Publisher = Nintendo, Platform = DS, and Year between 2005 and 2010 inclusive. Counted matching rows and summed Global_Sales for those rows.\"}"
+            }
+          ],
+          "role": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1596,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1152
+        },
+        "output_tokens": 118,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1714
+      },
+      "cost_usd": 0.0004816
+    }
+  ],
+  "error": null,
+  "failure_injected": true,
+  "latency_s": 9.111017583985813,
+  "input_tokens": 4866,
+  "cached_input_tokens": 1152,
+  "output_tokens": 414,
+  "cost_usd": 0.0022632000000000004,
+  "api_calls": 4
+}

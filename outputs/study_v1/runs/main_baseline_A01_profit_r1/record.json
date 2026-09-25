@@ -1,0 +1,426 @@
+{
+  "run_id": "main_baseline_A01_profit_r1",
+  "phase": "main",
+  "condition": "baseline",
+  "question_id": "A01_profit",
+  "replication": 1,
+  "inject_failure": false,
+  "timestamp": "2026-09-22T07:10:19.057534+00:00",
+  "finished_at": "2026-09-22T07:10:24.806499+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "temperature": 0.3,
+  "system_prompt_sha256": "e2333acb01009fd126ee6a690433b32c5a5982d4a64100a5f6681e7002f6d17d",
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe",
+  "answer": {
+    "status": "answered",
+    "claims": [
+      {
+        "field": "net_profit_usd",
+        "value": "610700000",
+        "evidence_id": "E002",
+        "pointer": "/rows/0/Global_Sales"
+      }
+    ],
+    "chart_evidence_id": null,
+    "explanation": "The net profit in US dollars for Nintendo from games released in 2010 was derived by summing the Global_Sales column for Nintendo games released in 2010. The sales are in millions of units, so multiplying by 1,000,000 gives the net profit in USD assuming 1 unit sold equals 1 USD net profit."
+  },
+  "raw_final_text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"net_profit_usd\",\"value\":\"610700000\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"}],\"chart_evidence_id\":null,\"explanation\":\"The net profit in US dollars for Nintendo from games released in 2010 was derived by summing the Global_Sales column for Nintendo games released in 2010. The sales are in millions of units, so multiplying by 1,000,000 gives the net profit in USD assuming 1 unit sold equals 1 USD net profit.\"}",
+  "candidates": [
+    {
+      "answer": {
+        "status": "answered",
+        "claims": [
+          {
+            "field": "net_profit_usd",
+            "value": "610700000",
+            "evidence_id": "E002",
+            "pointer": "/rows/0/Global_Sales"
+          }
+        ],
+        "chart_evidence_id": null,
+        "explanation": "The net profit in US dollars for Nintendo from games released in 2010 was derived by summing the Global_Sales column for Nintendo games released in 2010. The sales are in millions of units, so multiplying by 1,000,000 gives the net profit in USD assuming 1 unit sold equals 1 USD net profit."
+      },
+      "issues": [
+        "net_profit_usd: Asserted value does not match referenced data"
+      ],
+      "turn": 3
+    }
+  ],
+  "validator_repairs": 0,
+  "validator_blocked": false,
+  "tool_calls": [
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "select",
+        "columns": [
+          "Publisher",
+          "Year",
+          "Global_Sales"
+        ],
+        "filters": [
+          {
+            "column": "Publisher",
+            "operator": "eq",
+            "value": "Nintendo"
+          },
+          {
+            "column": "Year",
+            "operator": "eq",
+            "value": "2010"
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "sum",
+        "sort_by": [],
+        "descending": false,
+        "limit": 50
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.0035018749767914414,
+      "result": {
+        "evidence_id": "E001",
+        "ok": true,
+        "matched_source_rows": 28,
+        "total_result_rows": 28,
+        "truncated": false,
+        "rows": [
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 15.32
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 8.49
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 7.69
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 6.59
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 2.69
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 2.6
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 2.57
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 2.12
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 2.11
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 1.81
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 1.41
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 1.33
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.98
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.84
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.78
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.68
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.58
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.58
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.48
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.27
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.27
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.23
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.21
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.21
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.11
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.07
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.03
+          },
+          {
+            "Publisher": "Nintendo",
+            "Year": 2010.0,
+            "Global_Sales": 0.02
+          }
+        ],
+        "query": {
+          "operation": "select",
+          "columns": [
+            "Publisher",
+            "Year",
+            "Global_Sales"
+          ],
+          "filters": [
+            {
+              "column": "Publisher",
+              "operator": "eq",
+              "value": "Nintendo"
+            },
+            {
+              "column": "Year",
+              "operator": "eq",
+              "value": "2010"
+            }
+          ],
+          "filter_mode": "all",
+          "group_by": [],
+          "aggregation": "sum",
+          "sort_by": [],
+          "descending": false,
+          "limit": 50
+        }
+      }
+    },
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "aggregate",
+        "columns": [
+          "Global_Sales"
+        ],
+        "filters": [
+          {
+            "column": "Publisher",
+            "operator": "eq",
+            "value": "Nintendo"
+          },
+          {
+            "column": "Year",
+            "operator": "eq",
+            "value": "2010"
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "sum",
+        "sort_by": [],
+        "descending": false,
+        "limit": 1
+      },
+      "ok": true,
+      "injected": false,
+      "latency_s": 0.004284708993509412,
+      "result": {
+        "evidence_id": "E002",
+        "ok": true,
+        "matched_source_rows": 28,
+        "total_result_rows": 1,
+        "truncated": false,
+        "rows": [
+          {
+            "Global_Sales": 61.07
+          }
+        ],
+        "query": {
+          "operation": "aggregate",
+          "columns": [
+            "Global_Sales"
+          ],
+          "filters": [
+            {
+              "column": "Publisher",
+              "operator": "eq",
+              "value": "Nintendo"
+            },
+            {
+              "column": "Year",
+              "operator": "eq",
+              "value": "2010"
+            }
+          ],
+          "filter_mode": "all",
+          "group_by": [],
+          "aggregation": "sum",
+          "sort_by": [],
+          "descending": false,
+          "limit": 1
+        }
+      }
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "response_id": "resp_037e359dc5736c44016ab229db687087d093195ff9145eae52",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_037e359dc5736c44016ab229dbfcd487d0ae3f25642bd0ec85",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"select\",\"columns\":[\"Publisher\",\"Year\",\"Global_Sales\"],\"filters\":[{\"column\":\"Publisher\",\"operator\":\"eq\",\"value\":\"Nintendo\"},{\"column\":\"Year\",\"operator\":\"eq\",\"value\":\"2010\"}],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"sum\",\"sort_by\":[],\"descending\":false,\"limit\":50}",
+          "call_id": "call_6xquq2zWOW8e2HYui0VfZaBp",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 741,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 79,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 820
+      },
+      "cost_usd": 0.0004228000000000001
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_037e359dc5736c44016ab229dd057487d08bb92451d5d8df23",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_037e359dc5736c44016ab229de0c2c87d08309c966296b8bef",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"aggregate\",\"columns\":[\"Global_Sales\"],\"filters\":[{\"column\":\"Publisher\",\"operator\":\"eq\",\"value\":\"Nintendo\"},{\"column\":\"Year\",\"operator\":\"eq\",\"value\":\"2010\"}],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"sum\",\"sort_by\":[],\"descending\":false,\"limit\":1}",
+          "call_id": "call_WxChVhBbuYnqbBxjRkKirmrH",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1661,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 75,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 1736
+      },
+      "cost_usd": 0.0007844000000000001
+    },
+    {
+      "turn": 3,
+      "response_id": "resp_037e359dc5736c44016ab229df257087d08918eb2b1964aa46",
+      "status": "completed",
+      "output": [
+        {
+          "id": "msg_037e359dc5736c44016ab229df8a5087d0bb005dff277bf0ca",
+          "type": "message",
+          "status": "completed",
+          "content": [
+            {
+              "type": "output_text",
+              "annotations": [],
+              "logprobs": [],
+              "text": "{\"status\":\"answered\",\"claims\":[{\"field\":\"net_profit_usd\",\"value\":\"610700000\",\"evidence_id\":\"E002\",\"pointer\":\"/rows/0/Global_Sales\"}],\"chart_evidence_id\":null,\"explanation\":\"The net profit in US dollars for Nintendo from games released in 2010 was derived by summing the Global_Sales column for Nintendo games released in 2010. The sales are in millions of units, so multiplying by 1,000,000 gives the net profit in USD assuming 1 unit sold equals 1 USD net profit.\"}"
+            }
+          ],
+          "role": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 1881,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 1536
+        },
+        "output_tokens": 126,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 2007
+      },
+      "cost_usd": 0.0004932000000000001
+    }
+  ],
+  "error": null,
+  "failure_injected": false,
+  "latency_s": 5.750709999992978,
+  "input_tokens": 4283,
+  "cached_input_tokens": 1536,
+  "output_tokens": 280,
+  "cost_usd": 0.0017004000000000003,
+  "api_calls": 3
+}

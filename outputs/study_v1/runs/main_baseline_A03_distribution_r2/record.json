@@ -1,0 +1,143 @@
+{
+  "run_id": "main_baseline_A03_distribution_r2",
+  "phase": "main",
+  "condition": "baseline",
+  "question_id": "A03_distribution",
+  "replication": 2,
+  "inject_failure": false,
+  "timestamp": "2026-09-22T07:18:39.883138+00:00",
+  "finished_at": "2026-09-22T07:18:42.110383+00:00",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "temperature": 0.3,
+  "system_prompt_sha256": "e2333acb01009fd126ee6a690433b32c5a5982d4a64100a5f6681e7002f6d17d",
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe",
+  "answer": {
+    "status": "unsupported",
+    "claims": [],
+    "chart_evidence_id": null,
+    "explanation": "The dataset does not contain a 'Digital_Sales' column, so it is not possible to determine the percentage of Wii Sports global unit sales that were digital downloads versus physical copies using this dataset."
+  },
+  "raw_final_text": "{\"status\":\"unsupported\",\"claims\":[],\"chart_evidence_id\":null,\"explanation\":\"The dataset does not contain a 'Digital_Sales' column, so it is not possible to determine the percentage of Wii Sports global unit sales that were digital downloads versus physical copies using this dataset.\"}",
+  "candidates": [
+    {
+      "answer": {
+        "status": "unsupported",
+        "claims": [],
+        "chart_evidence_id": null,
+        "explanation": "The dataset does not contain a 'Digital_Sales' column, so it is not possible to determine the percentage of Wii Sports global unit sales that were digital downloads versus physical copies using this dataset."
+      },
+      "issues": [
+        "Return each requested field exactly once, with no extra fields."
+      ],
+      "turn": 2
+    }
+  ],
+  "validator_repairs": 0,
+  "validator_blocked": false,
+  "tool_calls": [
+    {
+      "name": "query",
+      "arguments": {
+        "operation": "select",
+        "columns": [
+          "Name",
+          "Global_Sales",
+          "Digital_Sales"
+        ],
+        "filters": [
+          {
+            "column": "Name",
+            "operator": "eq",
+            "value": "Wii Sports"
+          }
+        ],
+        "filter_mode": "all",
+        "group_by": [],
+        "aggregation": "sum",
+        "sort_by": [],
+        "descending": false,
+        "limit": 50
+      },
+      "ok": false,
+      "injected": false,
+      "latency_s": 0.002903708955273032,
+      "result": {
+        "evidence_id": "E001",
+        "ok": false,
+        "error": "ValueError: Requested columns are absent from the dataset"
+      }
+    }
+  ],
+  "trace": [
+    {
+      "turn": 1,
+      "response_id": "resp_0a28514473b512d4016ab22bd015e087d0a788a3634abba22f",
+      "status": "completed",
+      "output": [
+        {
+          "id": "fc_0a28514473b512d4016ab22bd0655487d09da884f897e8fee7",
+          "type": "function_call",
+          "status": "completed",
+          "arguments": "{\"operation\":\"select\",\"columns\":[\"Name\",\"Global_Sales\",\"Digital_Sales\"],\"filters\":[{\"column\":\"Name\",\"operator\":\"eq\",\"value\":\"Wii Sports\"}],\"filter_mode\":\"all\",\"group_by\":[],\"aggregation\":\"sum\",\"sort_by\":[],\"descending\":false,\"limit\":50}",
+          "call_id": "call_eZpQ8X4H76RbpvFMVAyX4iGi",
+          "name": "query"
+        }
+      ],
+      "usage": {
+        "input_tokens": 728,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 70,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 798
+      },
+      "cost_usd": 0.00040320000000000004
+    },
+    {
+      "turn": 2,
+      "response_id": "resp_0a28514473b512d4016ab22bd1405487d083e0e6eee597250c",
+      "status": "completed",
+      "output": [
+        {
+          "id": "msg_0a28514473b512d4016ab22bd19ee887d0bdbb60641e232e69",
+          "type": "message",
+          "status": "completed",
+          "content": [
+            {
+              "type": "output_text",
+              "annotations": [],
+              "logprobs": [],
+              "text": "{\"status\":\"unsupported\",\"claims\":[],\"chart_evidence_id\":null,\"explanation\":\"The dataset does not contain a 'Digital_Sales' column, so it is not possible to determine the percentage of Wii Sports global unit sales that were digital downloads versus physical copies using this dataset.\"}"
+            }
+          ],
+          "role": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 831,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 64,
+        "output_tokens_details": {
+          "reasoning_tokens": 0
+        },
+        "total_tokens": 895
+      },
+      "cost_usd": 0.0004348
+    }
+  ],
+  "error": null,
+  "failure_injected": false,
+  "latency_s": 2.2288833330385387,
+  "input_tokens": 1559,
+  "cached_input_tokens": 0,
+  "output_tokens": 134,
+  "cost_usd": 0.000838,
+  "api_calls": 2
+}

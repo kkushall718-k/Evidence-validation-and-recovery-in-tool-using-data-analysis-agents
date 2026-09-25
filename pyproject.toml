@@ -1,0 +1,5 @@
+[tool.black]
+target-version = ["py312"]
+line-length = 88
+# Historical experiment files are hash-bound and must remain byte-identical.
+force-exclude = '(src/|documentation/frozen_source/|documentation/audit_history/)'

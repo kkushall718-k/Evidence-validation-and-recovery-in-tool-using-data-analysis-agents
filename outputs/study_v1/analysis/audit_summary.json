@@ -1,0 +1,98 @@
+{
+  "runs": 198,
+  "api_calls": 583,
+  "experiment_cost_usd": 0.32512840000000004,
+  "cost_including_smoke_usd": 0.32536400000000004,
+  "unsettled_reservations": 0,
+  "source_audit": {
+    "evaluate.py": {
+      "matches_frozen": false,
+      "archived_original_matches": true
+    },
+    "ground_truth.py": {
+      "matches_frozen": true
+    },
+    "run_experiment.py": {
+      "matches_frozen": true
+    },
+    "smoke_test.py": {
+      "matches_frozen": true
+    },
+    "study.py": {
+      "matches_frozen": true
+    }
+  },
+  "protocol_matches_frozen": true,
+  "started_at": "2026-09-22T07:06:50.876275+00:00",
+  "finished_at": "2026-09-22T07:24:44.253380+00:00",
+  "api_or_runner_errors": 0,
+  "condition_totals": {
+    "baseline": {
+      "main_cost": 0.09172680000000001,
+      "mean_cost": 0.0015287800000000002,
+      "median_latency_s": 4.78185768800904,
+      "p95_latency_s": 7.488299816328799,
+      "mean_latency_s": 4.663547848564728
+    },
+    "prompt": {
+      "main_cost": 0.097962,
+      "mean_cost": 0.0016327,
+      "median_latency_s": 5.138378729490796,
+      "p95_latency_s": 9.036878242017702,
+      "mean_latency_s": 5.087598865300728
+    },
+    "verified": {
+      "main_cost": 0.0955252,
+      "mean_cost": 0.0015920866666666667,
+      "median_latency_s": 5.041227458510548,
+      "p95_latency_s": 7.766038461812422,
+      "mean_latency_s": 4.772030947200255
+    }
+  },
+  "main_process": {
+    "baseline": {
+      "validator_repairs": 0,
+      "validator_blocked": 0,
+      "tool_calls": 105,
+      "noninjected_tool_calls": 105,
+      "successful_noninjected_calls": 95,
+      "failed_tool_calls": 10
+    },
+    "prompt": {
+      "validator_repairs": 0,
+      "validator_blocked": 0,
+      "tool_calls": 115,
+      "noninjected_tool_calls": 115,
+      "successful_noninjected_calls": 98,
+      "failed_tool_calls": 17
+    },
+    "verified": {
+      "validator_repairs": 0,
+      "validator_blocked": 0,
+      "tool_calls": 111,
+      "noninjected_tool_calls": 111,
+      "successful_noninjected_calls": 97,
+      "failed_tool_calls": 14
+    }
+  },
+  "sensitivity": {
+    "baseline": {
+      "relaxed_abstention": 15,
+      "numeric_unsupported_claim": 9,
+      "empty_claims": 20,
+      "string_null_value": 1
+    },
+    "prompt": {
+      "relaxed_abstention": 28,
+      "numeric_unsupported_claim": 2,
+      "empty_claims": 0,
+      "string_null_value": 0
+    },
+    "verified": {
+      "relaxed_abstention": 29,
+      "numeric_unsupported_claim": 1,
+      "empty_claims": 0,
+      "string_null_value": 0
+    }
+  }
+}

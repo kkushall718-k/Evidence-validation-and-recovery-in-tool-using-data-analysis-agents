@@ -1,0 +1,353 @@
+{
+  "answers": {
+    "Q01_quality": {
+      "missing_year_rows": 271,
+      "out_of_range_year_rows": 4,
+      "missing_publisher_rows": 58
+    },
+    "Q02_top_games": {
+      "top_game_name": "Wii Sports",
+      "top_game_platform": "Wii",
+      "top_game_global_sales": 82.74,
+      "second_game_name": "Super Mario Bros.",
+      "second_game_global_sales": 40.24
+    },
+    "Q03_release_year": {
+      "peak_release_year": 2008,
+      "peak_release_year_global_sales": 678.9
+    },
+    "Q04_regions": {
+      "na_top_genre": "Action",
+      "na_top_genre_sales": 877.83,
+      "eu_top_genre": "Action",
+      "eu_top_genre_sales": 525.0,
+      "jp_top_genre": "Role-Playing",
+      "jp_top_genre_sales": 352.31
+    },
+    "Q05_filtered": {
+      "matching_rows": 138,
+      "global_sales_total": 324.24
+    },
+    "Q06_publishers": {
+      "top_publisher": "Nintendo",
+      "top_publisher_global_sales": 883.89
+    }
+  },
+  "plots": {
+    "Q02_top_games": {
+      "kind": "bar",
+      "x": "Name",
+      "ys": [
+        "Global_Sales"
+      ],
+      "rows": [
+        {
+          "Name": "Wii Sports",
+          "Global_Sales": 82.74
+        },
+        {
+          "Name": "Super Mario Bros.",
+          "Global_Sales": 40.24
+        },
+        {
+          "Name": "Mario Kart Wii",
+          "Global_Sales": 35.82
+        },
+        {
+          "Name": "Wii Sports Resort",
+          "Global_Sales": 33.0
+        },
+        {
+          "Name": "Pokemon Red/Pokemon Blue",
+          "Global_Sales": 31.37
+        }
+      ]
+    },
+    "Q03_release_year": {
+      "kind": "line",
+      "x": "Year",
+      "ys": [
+        "Global_Sales"
+      ],
+      "rows": [
+        {
+          "Year": 1980.0,
+          "Global_Sales": 11.38
+        },
+        {
+          "Year": 1981.0,
+          "Global_Sales": 35.77
+        },
+        {
+          "Year": 1982.0,
+          "Global_Sales": 28.86
+        },
+        {
+          "Year": 1983.0,
+          "Global_Sales": 16.79
+        },
+        {
+          "Year": 1984.0,
+          "Global_Sales": 50.36
+        },
+        {
+          "Year": 1985.0,
+          "Global_Sales": 53.94
+        },
+        {
+          "Year": 1986.0,
+          "Global_Sales": 37.07
+        },
+        {
+          "Year": 1987.0,
+          "Global_Sales": 21.74
+        },
+        {
+          "Year": 1988.0,
+          "Global_Sales": 47.22
+        },
+        {
+          "Year": 1989.0,
+          "Global_Sales": 73.45
+        },
+        {
+          "Year": 1990.0,
+          "Global_Sales": 49.39
+        },
+        {
+          "Year": 1991.0,
+          "Global_Sales": 32.23
+        },
+        {
+          "Year": 1992.0,
+          "Global_Sales": 76.16
+        },
+        {
+          "Year": 1993.0,
+          "Global_Sales": 45.98
+        },
+        {
+          "Year": 1994.0,
+          "Global_Sales": 79.17
+        },
+        {
+          "Year": 1995.0,
+          "Global_Sales": 88.11
+        },
+        {
+          "Year": 1996.0,
+          "Global_Sales": 199.15
+        },
+        {
+          "Year": 1997.0,
+          "Global_Sales": 200.98
+        },
+        {
+          "Year": 1998.0,
+          "Global_Sales": 256.47
+        },
+        {
+          "Year": 1999.0,
+          "Global_Sales": 251.27
+        },
+        {
+          "Year": 2000.0,
+          "Global_Sales": 201.56
+        },
+        {
+          "Year": 2001.0,
+          "Global_Sales": 331.47
+        },
+        {
+          "Year": 2002.0,
+          "Global_Sales": 395.52
+        },
+        {
+          "Year": 2003.0,
+          "Global_Sales": 357.85
+        },
+        {
+          "Year": 2004.0,
+          "Global_Sales": 419.31
+        },
+        {
+          "Year": 2005.0,
+          "Global_Sales": 459.94
+        },
+        {
+          "Year": 2006.0,
+          "Global_Sales": 521.04
+        },
+        {
+          "Year": 2007.0,
+          "Global_Sales": 611.13
+        },
+        {
+          "Year": 2008.0,
+          "Global_Sales": 678.9
+        },
+        {
+          "Year": 2009.0,
+          "Global_Sales": 667.3
+        },
+        {
+          "Year": 2010.0,
+          "Global_Sales": 600.45
+        },
+        {
+          "Year": 2011.0,
+          "Global_Sales": 515.99
+        },
+        {
+          "Year": 2012.0,
+          "Global_Sales": 363.54
+        },
+        {
+          "Year": 2013.0,
+          "Global_Sales": 368.11
+        },
+        {
+          "Year": 2014.0,
+          "Global_Sales": 337.05
+        },
+        {
+          "Year": 2015.0,
+          "Global_Sales": 264.44
+        },
+        {
+          "Year": 2016.0,
+          "Global_Sales": 70.93
+        },
+        {
+          "Year": 2017.0,
+          "Global_Sales": 0.05
+        },
+        {
+          "Year": 2020.0,
+          "Global_Sales": 0.29
+        }
+      ]
+    },
+    "Q04_regions": {
+      "kind": "bar",
+      "x": "Genre",
+      "ys": [
+        "NA_Sales",
+        "EU_Sales",
+        "JP_Sales"
+      ],
+      "rows": [
+        {
+          "Genre": "Action",
+          "NA_Sales": 877.83,
+          "EU_Sales": 525.0,
+          "JP_Sales": 159.95
+        },
+        {
+          "Genre": "Adventure",
+          "NA_Sales": 105.8,
+          "EU_Sales": 64.13,
+          "JP_Sales": 52.07
+        },
+        {
+          "Genre": "Fighting",
+          "NA_Sales": 223.59,
+          "EU_Sales": 101.32,
+          "JP_Sales": 87.35
+        },
+        {
+          "Genre": "Misc",
+          "NA_Sales": 410.24,
+          "EU_Sales": 215.98,
+          "JP_Sales": 107.76
+        },
+        {
+          "Genre": "Platform",
+          "NA_Sales": 447.05,
+          "EU_Sales": 201.63,
+          "JP_Sales": 130.77
+        },
+        {
+          "Genre": "Puzzle",
+          "NA_Sales": 123.78,
+          "EU_Sales": 50.78,
+          "JP_Sales": 57.31
+        },
+        {
+          "Genre": "Racing",
+          "NA_Sales": 359.42,
+          "EU_Sales": 238.39,
+          "JP_Sales": 56.69
+        },
+        {
+          "Genre": "Role-Playing",
+          "NA_Sales": 327.28,
+          "EU_Sales": 188.06,
+          "JP_Sales": 352.31
+        },
+        {
+          "Genre": "Shooter",
+          "NA_Sales": 582.6,
+          "EU_Sales": 313.27,
+          "JP_Sales": 38.28
+        },
+        {
+          "Genre": "Simulation",
+          "NA_Sales": 183.31,
+          "EU_Sales": 113.38,
+          "JP_Sales": 63.7
+        },
+        {
+          "Genre": "Sports",
+          "NA_Sales": 683.35,
+          "EU_Sales": 376.85,
+          "JP_Sales": 135.37
+        },
+        {
+          "Genre": "Strategy",
+          "NA_Sales": 68.7,
+          "EU_Sales": 45.34,
+          "JP_Sales": 49.46
+        }
+      ]
+    },
+    "Q06_publishers": {
+      "kind": "bar",
+      "x": "Publisher",
+      "ys": [
+        "Global_Sales"
+      ],
+      "rows": [
+        {
+          "Publisher": "Nintendo",
+          "Global_Sales": 883.89
+        },
+        {
+          "Publisher": "Electronic Arts",
+          "Global_Sales": 647.49
+        },
+        {
+          "Publisher": "Activision",
+          "Global_Sales": 381.45
+        },
+        {
+          "Publisher": "Sony Computer Entertainment",
+          "Global_Sales": 311.21
+        },
+        {
+          "Publisher": "THQ",
+          "Global_Sales": 264.8
+        }
+      ]
+    }
+  },
+  "unanswerable_reasons": {
+    "A01_profit": "Unit sales contain neither sale prices/revenue nor costs needed for net profit.",
+    "A02_reviews": "There is no critic review score column.",
+    "A03_distribution": "There is no digital/physical distribution-channel breakdown.",
+    "A04_causality": "Marketing spending, treatment/exposure, timing and causal identification are absent.",
+    "A05_transaction_year": "Year is release year, and the sales columns do not identify when sales transactions occurred.",
+    "A06_population": "The coverage excludes unlisted and low-selling games; a sample cannot identify the complete worldwide title population."
+  },
+  "dataset_sha256": "e2076095ffcae2a92dbc6de6ecbd54455ee034bb38da550b2dc385e9265d4ebe"
+}

@@ -1,0 +1,9 @@
+{
+  "expected_runs": 198,
+  "observed_runs": 198,
+  "missing_run_ids": [],
+  "complete": true,
+  "study_sha256": "763a3e38bca030f79898c673d973b6cc1be886d69fc1450d50d00026592e7e97",
+  "human_ratings": "not supplied; no human agreement or broad prose-hallucination claim is made",
+  "measured_scope": "Structured response correctness, abstention, evidence consistency, chart data, observable tool execution and operational cost/latency."
+}

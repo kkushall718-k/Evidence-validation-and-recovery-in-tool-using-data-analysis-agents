@@ -1,0 +1,65 @@
+{
+  "scope": "Eight deterministic post-collection implementation checks, not API experiment outcomes. The semantic error deliberately passes the limited validator.",
+  "cases": [
+    {
+      "case": "Unchanged real correct answer",
+      "expected_evidence_valid": true,
+      "observed_evidence_valid": true,
+      "issues": []
+    },
+    {
+      "case": "Changed reported scalar",
+      "expected_evidence_valid": false,
+      "observed_evidence_valid": false,
+      "issues": [
+        "top_game_name: Asserted value does not match referenced data"
+      ]
+    },
+    {
+      "case": "Missing evidence identifier",
+      "expected_evidence_valid": false,
+      "observed_evidence_valid": false,
+      "issues": [
+        "top_game_name: Missing or unsuccessful evidence receipt"
+      ]
+    },
+    {
+      "case": "Echoed argument used as evidence",
+      "expected_evidence_valid": false,
+      "observed_evidence_valid": false,
+      "issues": [
+        "top_game_name: Pointer does not identify a data result"
+      ]
+    },
+    {
+      "case": "Omitted required field",
+      "expected_evidence_valid": false,
+      "observed_evidence_valid": false,
+      "issues": [
+        "Return each requested field exactly once, with no extra fields."
+      ]
+    },
+    {
+      "case": "Missing chart receipt",
+      "expected_evidence_valid": false,
+      "observed_evidence_valid": false,
+      "issues": [
+        "The requested chart must cite a successful plot receipt."
+      ]
+    },
+    {
+      "case": "Unsupported status with asserted values",
+      "expected_evidence_valid": false,
+      "observed_evidence_valid": false,
+      "issues": [
+        "An unsupported/error response must not assert requested quantities."
+      ]
+    },
+    {
+      "case": "Real semantic error remains evidence valid",
+      "expected_evidence_valid": true,
+      "observed_evidence_valid": true,
+      "issues": []
+    }
+  ]
+}

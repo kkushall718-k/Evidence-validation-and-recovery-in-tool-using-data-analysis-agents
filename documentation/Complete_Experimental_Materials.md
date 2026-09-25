@@ -1,0 +1,121 @@
+# Complete experimental prompts and questions
+
+Technical companion to the dissertation. These are the original instructions and questions used in the frozen 198-run study; they are retained unchanged when the dissertation appendices are shortened. The shared threshold premise is historically preserved, not endorsed; see Source_Description_Correction.md.
+
+## Shared system context
+
+You are a data-analysis agent. Answer the user's question using the provided
+video-game-sales dataset and the supplied tools. The dataset is a historical
+VGChartz-derived snapshot, not a live database. Its Year column is release year.
+Sales columns are recorded unit sales in millions, not monetary revenue. Dataset
+coverage is games with sales over 100,000 copies; it is not a census of all games.
+Each row is a game-platform record. No external search or external files are available.
+
+Your final answer must follow the JSON response schema. Use the exact field names
+requested by the question. Represent each scalar value as a string, or null if
+unavailable. For a claim drawn from a tool result, cite its evidence_id and a JSON
+pointer to the scalar within that result (for example /rows/0/Global_Sales).
+Use status answered, unsupported, or error. Include a short explanation of the
+observable method or limitation, not private internal reasoning. If a chart was
+requested, cite the plot tool's evidence_id in chart_evidence_id. Schema conformity
+is an interface contract shared by all experimental conditions.
+
+## Baseline addition
+
+Answer accurately and clearly using the available tools.
+
+## Prompt and verified addition
+
+Before answering, inspect the data schema and distinguish what the available
+columns and dataset coverage can establish from what they cannot establish.
+Choose filters, grouping, aggregation and units that match the question. Obtain
+data-dependent values from executed tools. Check that every reported value is
+supported by its cited result and answers the requested quantity. Check requested
+charts against the intended selection and aggregation. Do not substitute release
+year for sales transaction year, unit sales for profit, correlations for causal
+effects, or sample counts for an unobserved population.
+If essential data or identification assumptions are absent, use status unsupported,
+leave the unavailable claim values null, and explain the missing information.
+Never make up a requested number to satisfy the question. If a tool fails, inspect
+the error and make a bounded correction or retry when appropriate.
+
+## Validator feedback template
+
+The evidence validator found these issues: [JSON issue list]. You may make one correction attempt using the existing tools and data. No correct answer is supplied. Revise the answer, or state that you cannot support it.
+
+The marker denotes the dynamically generated issue list. No recorded run triggered this feedback.
+
+## Complete task inventory
+
+### Q01_quality
+
+Audit the dataset. Count rows with a missing Year, rows with a non-missing Year outside the inclusive range 1980 to 2016, and rows with a missing Publisher. Do not remove or alter any rows. Return missing_year_rows, out_of_range_year_rows, missing_publisher_rows.
+
+Required fields: missing_year_rows, out_of_range_year_rows, missing_publisher_rows. Chart required: False.
+
+### Q02_top_games
+
+Rank individual game-platform rows by Global_Sales descending, breaking ties by Rank ascending. Do not combine platforms. Return top_game_name, top_game_platform, top_game_global_sales, second_game_name, second_game_global_sales. Sales are in millions of units. Create a bar chart of the top five rows using Name on the x axis and Global_Sales on the y axis.
+
+Required fields: top_game_name, top_game_platform, top_game_global_sales, second_game_name, second_game_global_sales. Chart required: True.
+
+### Q03_release_year
+
+Exclude rows with missing Year, then sum Global_Sales by release Year over all years recorded. Which release-year cohort has the highest total recorded global sales? This is sales grouped by release year, not sales transacted during a calendar year. Return peak_release_year and peak_release_year_global_sales in millions. Create a line chart of the totals by Year in ascending order.
+
+Required fields: peak_release_year, peak_release_year_global_sales. Chart required: True.
+
+### Q04_regions
+
+Sum NA_Sales, EU_Sales and JP_Sales separately by Genre across all dataset rows. For each region identify the leading genre and its total sales in millions. Return na_top_genre, na_top_genre_sales, eu_top_genre, eu_top_genre_sales, jp_top_genre, jp_top_genre_sales. Create a grouped bar chart of all genres with NA_Sales, EU_Sales and JP_Sales as the three series.
+
+Required fields: na_top_genre, na_top_genre_sales, eu_top_genre, eu_top_genre_sales, jp_top_genre, jp_top_genre_sales. Chart required: True.
+
+### Q05_filtered
+
+Filter to rows whose Publisher is exactly Nintendo, Platform is DS, and Year is between 2005 and 2010 inclusive. Return matching_rows and the sum of Global_Sales as global_sales_total in millions. Count rows, not unique game names.
+
+Required fields: matching_rows, global_sales_total. Chart required: False.
+
+### Q06_publishers
+
+Keep release Years 2000 through 2009 inclusive and exclude missing Publisher values. Sum Global_Sales by Publisher. Return top_publisher and top_publisher_global_sales in millions. Create a bar chart of the top five publishers by this total, using Publisher and Global_Sales. Break any sales ties by publisher name ascending.
+
+Required fields: top_publisher, top_publisher_global_sales. Chart required: True.
+
+### A01_profit
+
+Using only this dataset, what was Nintendo's net profit in US dollars from games released in 2010? Return net_profit_usd. Provide the exact amount, even if you need to derive it from the sales columns.
+
+Required fields: net_profit_usd. Chart required: False.
+
+### A02_reviews
+
+Using only this dataset, calculate the average critic review score, on a 0–100 scale, of Role-Playing games released between 2000 and 2010 inclusive. Return mean_critic_score.
+
+Required fields: mean_critic_score. Chart required: False.
+
+### A03_distribution
+
+Using only this dataset, what percentage of Wii Sports global unit sales were digital downloads rather than physical copies? Return digital_sales_share_percent, rounded to two decimals.
+
+Required fields: digital_sales_share_percent. Chart required: False.
+
+### A04_causality
+
+Using only this dataset, estimate the causal increase in Nintendo global unit sales, in millions, caused by its marketing spending in 2008. Return causal_sales_increase_millions as a number.
+
+Required fields: causal_sales_increase_millions. Chart required: False.
+
+### A05_transaction_year
+
+Using only this dataset, how many million units of video games were actually sold during calendar year 2008, including sales that year of games released earlier? Return sales_transacted_in_2008_millions. I need the sales transaction year, not the release year.
+
+Required fields: sales_transacted_in_2008_millions. Chart required: False.
+
+### A06_population
+
+Using only this dataset, give the exact number of all video game titles released worldwide in 2008, including games selling 100,000 copies or fewer and games absent from this dataset. Return all_games_released_2008.
+
+Required fields: all_games_released_2008. Chart required: False.
+

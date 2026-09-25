@@ -1,0 +1,114 @@
+{
+  "file_name": "Kushal_Krishnamurthy_Dissertation.docx",
+  "docx_sha256": "4159bf68338bf1de28306d965ef33ef55c7cbdf1a88d49e3e5111565f5021f07",
+  "method": "Whitespace tokens and subset containing an alphanumeric character; visible body text, tables and cached contents included; headers/footers, field instructions and image alt text excluded. Not a Microsoft Word count.",
+  "sections": {
+    "Title page": {
+      "whitespace_tokens": 70,
+      "alphanumeric_tokens": 70
+    },
+    "Abstract": {
+      "whitespace_tokens": 213,
+      "alphanumeric_tokens": 213
+    },
+    "Statement of AI assistance": {
+      "whitespace_tokens": 107,
+      "alphanumeric_tokens": 107
+    },
+    "Contents": {
+      "whitespace_tokens": 348,
+      "alphanumeric_tokens": 348
+    },
+    "1 Introduction": {
+      "whitespace_tokens": 754,
+      "alphanumeric_tokens": 754
+    },
+    "2 Foundations": {
+      "whitespace_tokens": 880,
+      "alphanumeric_tokens": 880
+    },
+    "3 Related work": {
+      "whitespace_tokens": 1440,
+      "alphanumeric_tokens": 1440
+    },
+    "4 System design and research method": {
+      "whitespace_tokens": 2846,
+      "alphanumeric_tokens": 2836
+    },
+    "5 Results": {
+      "whitespace_tokens": 2209,
+      "alphanumeric_tokens": 2209
+    },
+    "6 Discussion": {
+      "whitespace_tokens": 1200,
+      "alphanumeric_tokens": 1200
+    },
+    "7 Conclusion": {
+      "whitespace_tokens": 396,
+      "alphanumeric_tokens": 396
+    },
+    "References": {
+      "whitespace_tokens": 726,
+      "alphanumeric_tokens": 726
+    },
+    "Appendix A Prompt specification": {
+      "whitespace_tokens": 94,
+      "alphanumeric_tokens": 94
+    },
+    "Appendix B Question specification": {
+      "whitespace_tokens": 91,
+      "alphanumeric_tokens": 91
+    },
+    "Appendix C Reproduction and artifacts": {
+      "whitespace_tokens": 159,
+      "alphanumeric_tokens": 159
+    },
+    "Appendix D Supplementary assessment rubric": {
+      "whitespace_tokens": 443,
+      "alphanumeric_tokens": 443
+    }
+  },
+  "main_chapters": {
+    "whitespace_tokens": 9725,
+    "alphanumeric_tokens": 9715
+  },
+  "full_body": {
+    "whitespace_tokens": 11976,
+    "alphanumeric_tokens": 11966
+  },
+  "punctuation_only_tokens": {
+    "/": 10
+  },
+  "verification_timestamp_utc": "2026-09-24T00:46:15.785672+00:00",
+  "editor_cross_check": {
+    "file_name": "Kushal_Krishnamurthy_Dissertation.docx",
+    "docx_sha256": "4159bf68338bf1de28306d965ef33ef55c7cbdf1a88d49e3e5111565f5021f07",
+    "application": "LibreOffice Writer",
+    "generator": "LibreOfficeDev/26.8.0.0.alpha0$MacOSX_AARCH64 LibreOffice_project/2c87e51eeaa2b413ff4ae097b2705eea1995d8e5",
+    "scope": "Complete document; no section exclusions; editor handling of headers, footers and fields",
+    "words": 12000,
+    "expected_words": 12000,
+    "matches_expected": true,
+    "temporary_odt_sha256": "76aac3c966afcacb805bce48b3ee790ff8a44c6ce3ff51d90d0cb80b8ff0eeec",
+    "source_unchanged": true,
+    "native_Microsoft_Word_count_verified": false,
+    "raster_image_text_transcribed": false
+  },
+  "counted_sections": "All sections; confirmed by the author: Everything counts.",
+  "declared_submission_words": 12000,
+  "rendered_pages": 47,
+  "linked_contents_entries": 59,
+  "previous_version": {
+    "docx_sha256": "bae286cf616097b4a3b22b15586277ae441efaece5f404fe55e0162fa7db94cf",
+    "whole_document_libreoffice_words": 15525,
+    "rendered_pages": 51,
+    "historical_report": "documentation/audit_history/Word_Count_Audit_before_optimization.json"
+  },
+  "reduction_words_same_editor": 3525,
+  "frozen_evidence_files_verified_unchanged": 308,
+  "limitations": [
+    "Native Microsoft Word count has not been checked.",
+    "The editor does not OCR text inside raster figures or multiply running-header wording by its printed repetitions.",
+    "Replacing personal-detail placeholders or refreshing fields can change the count; recount the final upload file."
+  ]
+}
