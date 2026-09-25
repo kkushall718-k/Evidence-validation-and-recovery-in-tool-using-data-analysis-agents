@@ -16,7 +16,7 @@ and the distinction between the original and current package manifests.
 - A runtime evidence validator with one possible correction opportunity.
 - Three experimental conditions, repeated tasks and a separate controlled failure probe.
 - Independent numerical and chart-data evaluation, an executed notebook and recorded cost accounting.
-- A separately labelled post hoc review of explanatory prose, observable reasoning, semantic tool choices and parameters, with source-bound AI-assisted annotations and explicit repeated-run variance.
+- A separately labelled post hoc review of explanatory prose, observable reasoning, semantic tool choices and parameters, with source-bound and explicit repeated-run variance.
 
 ## Actual findings
 
